@@ -1,0 +1,65 @@
+{% extends 'dbase.html' %}
+
+{% load static %}
+
+{% load bootstrap4 %}
+
+{% block body %}
+            <!-- header end-->
+            <!-- wrapper-->
+            <div id="wrapper">
+                <!-- content-->
+                <div class="content">
+                    <!--  section  -->
+                    <section class="parallax-section single-par" data-scrollax-parent="true">
+                        <div class="bg par-elem "  data-bg="images/bg/1.jpg" data-scrollax="properties: { translateY: '30%' }"></div>
+                        <div class="overlay op7"></div>
+                       
+                        <div class="header-sec-link">
+                            <a href="#sec1" class="custom-scroll-link"><i class="fal fa-angle-double-down"></i></a> 
+                        </div>
+                    </section>
+                    <!--  section  end-->
+                    <section   id="sec1" data-scrollax-parent="true">
+                        <div class="container">
+                            <div class="section-title">
+                                <h2>Your Membership Details</h2>
+                                <div class="section-subtitle">Membership</div>
+                               
+                               
+                            </div>
+                            
+                            <div class="pricing-wrap fl-wrap">
+                                <!-- price-item-->
+                               	{% if user_subscription != None %}
+                            			<h3>Current Membership: {{ user_membership.membership.membership_type }} since {{ user_subscription.get_created_date }}</h3>
+                            		</br>
+
+                            			{% if user_subscription.active != False %}
+                            			<h3>Next payment due: {{ user_subscription.get_next_billing_date }}</h3>
+                            			</br>
+                            			<h3><a href="{% url 'memberships:cancel' %}">Click here to Cancel subscription</a></h3>
+
+                            			{% else %}
+                            			<h3>You don't have an active membership plan. Check them out here 
+                            				<a href="{% url 'memberships:select' %}">Select subscription</a>
+                            			</h3>
+                            			{% endif %}
+                            			{% endif %}
+                                <!-- price-item end-->
+                                <!-- price-item-->
+                                
+                               
+                                <!-- price-item end-->                                                    
+                            </div>
+                           
+                            <!-- features-box-container end  --> 
+                        </div>
+                    </section>
+                </div>
+                <!--content end-->
+            </div>
+            <!-- wrapper end-->
+            <!--footer -->
+
+{% endblock body %}

@@ -1,0 +1,182 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+
+{% block body %}
+
+            <!-- header end-->
+            <!-- wrapper-->
+            <div id="wrapper">
+                <!-- content-->
+                <div class="content">
+                    <!--  section  -->
+                    <section class="parallax-section single-par" data-scrollax-parent="true">
+                        <div class="bg par-elem "  data-bg="{% static 'images/products.jpg' %}" data-scrollax="properties: { translateY: '30%' }"></div>
+                        <div class="overlay op7"></div>
+                        <div class="container">
+                            <div class="section-title center-align big-title">
+                                <h2><span>Products</span></h2>
+                                <span class="section-separator"></span>
+                            </div>
+                        </div>
+                        <div class="header-sec-link">
+                            <a href="#sec1" class="custom-scroll-link"><i class="fal fa-angle-double-down"></i></a>
+                        </div>
+                    </section>
+                    <!--  section  end-->
+                    <section class="gray-bg small-padding no-top-padding-sec" id="sec1">
+                        <div class="container">
+
+                            <div class="mob-nav-content-btn  color2-bg show-list-wrap-search ntm fl-wrap"><i class="fal fa-filter"></i>  Filters</div>
+                            <div class="fl-wrap">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class=" fl-wrap lws_mobile">
+                                            <!--box-widget-item -->
+                                            <div class="box-widget-item fl-wrap block_box">
+                                                <div class="box-widget-item-header">
+                                                    <h3>Search Products</h3>
+                                                </div>
+                                                <div class="box-widget fl-wrap">
+                                                    <div class="box-widget-content">
+                                                        <div class="search-widget">
+                                                            <form method="GET" action="{% url 'products:product_list' %}" class="fl-wrap">
+                                                                <input name="q" id="se" type="text" class="search" placeholder="Search product.." value="" />
+                                                                <button class="search-submit color2-bg" id="submit_btn"><i class="fal fa-search"></i> </button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--box-widget-item end -->
+                                            <!--box-widget-item -->
+
+                                            <!--box-widget-item end -->
+                                            <!--box-widget-item -->
+                                            <div class="box-widget-item fl-wrap block_box">
+                                                <div class="box-widget-item-header">
+                                                    <h3>Product Categories</h3>
+                                                </div>
+                                                <div class="box-widget fl-wrap">
+                                                    <div class="box-widget-content">
+                                                        <ul class="cat-item no-list-style">
+                                                            {% for category in category_list %}
+                                                            <li><a href="{% url 'products:product_list_category' category.slug %}">{{category}}</a> <span>{{category.total_products}}</span></li>
+                                                            {% endfor %}
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--box-widget-item end -->
+                                            <!--box-widget-item -->
+
+                                            <!--box-widget-item end -->
+                                            <!--box-widget-item -->
+
+                                            <!--box-widget-item end -->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <!-- list-main-wrap-header-->
+
+                                        <!-- list-main-wrap-header end-->
+                                        <!-- listing-item-container -->
+                                        <div class="listing-item-container init-grid-items fl-wrap nocolumn-lic">
+                                            <!-- shop-item  -->
+                                            {% for product in product_list %}
+                                            <div class="shop-item">
+                                                <div class="shop-item-media">
+                                                    <a href="{% url 'products:product_detail' product.slug %}">
+                                                        <img src="{{product.image.url}}" alt="">
+                                                        <div class="overlay"></div>
+                                                    </a>
+                                                    <div class="geodir_status_date gsd_open"><i class="fal fa-piggy-bank"></i>Verified</div>
+                                                    <div class="add-tocart color-bg"><span>{{product.name}}</span></div>
+                                                    <div class="geodir-category-opt">
+                                                        <div class="listing-rating-count-wrap">
+
+                                                            <br>
+                                                            <div class="reviews-count">Verified</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="shop-item_title">
+                                                    <h4><a href="{% url 'products:product_detail' product.slug %}">{{product.name}}</a></h4>
+                                                    <span class="shop-item_price">Price Range {{product.price}} INR </span>
+                                                    <a href="{% url 'products:product_detail' product.slug %}" class="shop-item_link color-bg">Details</a>
+                                                </div>
+                                            </div>
+                                            {% endfor %}
+                                            <!-- shop-item end -->
+                                            <!-- shop-item  -->
+
+                                            <!-- shop-item end -->
+                                            <!-- shop-item  -->
+
+                                            <!-- shop-item end -->
+                                            <!-- shop-item  -->
+
+                                            <!-- shop-item end -->
+											<!-- shop-item  -->
+
+                                            <!-- shop-item end -->
+                                            <!-- shop-item  -->
+
+                                            <!-- shop-item end -->
+                                            <!-- shop-item  -->
+
+                                            <!-- shop-item end -->
+                                            <!-- shop-item  -->
+
+                                            <!-- shop-item end -->
+                                            <div class="pagination fwmpag">
+                                              {% if product_list.has_other_pages %}
+
+
+                                              {% if product_list.has_previous %}
+                                              <a href="?page={{ product_list.previous_page_number }}"> class=prevposts-link"><i class="fas fa-caret-left">
+                                              </i><span>Prev</span></a>
+                                              {% else %}
+                                              <a class = "disbled"></a>
+                                              {% endif %}
+
+
+                                              {% for pages in product_list.paginator.page_range %}
+                                              {% if product_list.number == pages %}
+                                              <a href="#">{{pages}}</a>
+                                              {% else %}
+                                              <a href="?page={{pages}}">{{pages}}</a>
+                                              {% endif %}
+
+                                              {% endfor %}
+
+
+
+                                              {% if product_list.has_next %}
+                                              <a href ="?page={{ product_list.next_page_number }}" class="nextposts-link"><span>Next</span><i class="fas fa-caret-right"></i></a>
+                                              <a class = "disbled"></a>
+                                              {% endif %}
+
+                                              {% endif %}
+                                            </div>
+                                        </div>
+                                        <!-- listing-item-container end -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--section end-->
+                    <div class="limit-box fl-wrap"></div>
+                </div>
+                <!--content end-->
+                <!--cart  -->
+
+                <!--cart end-->
+            </div>
+            <!-- wrapper end-->
+            <!--footer -->
+
+{% endblock body %}

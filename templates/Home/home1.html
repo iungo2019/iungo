@@ -1,0 +1,385 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+
+{% block body %}
+            <!-- header end-->
+            <!-- wrapper-->
+            <div id="wrapper">
+                <!-- content-->
+                <div class="content">
+                    <!--section  -->
+                    <section class="hero-section"   data-scrollax-parent="true">
+                        <div class="bg-tabs-wrap">
+                            <div class="bg-parallax-wrap" data-scrollax="properties: { translateY: '200px' }">
+                                <!--ms-container-->
+                                <div class="slideshow-container" data-scrollax="properties: { translateY: '300px' }" >
+                                    <div class="swiper-container">
+                                        <div class="swiper-wrapper">
+                                            <!--ms_item-->
+                                            <div class="swiper-slide">
+                                                <div class="ms-item_fs fl-wrap full-height">
+                                                    <div class="bg" data-bg="{%static 'images/home_banner.jpg' %}"></div>
+                                                    <div class="overlay op7"></div>
+                                                </div>
+                                            </div>
+                                            <!--ms_item end-->
+                                            <!--ms_item-->
+                                            <div class="swiper-slide ">
+                                                <div class="ms-item_fs fl-wrap full-height">
+                                                    <div class="bg" data-bg="{%static 'images/home_banner1.jpg' %}"></div>
+                                                    <div class="overlay op7"></div>
+                                                </div>
+                                            </div>
+                                            <!--ms_item end-->
+                                            <!--ms_item-->
+                                            <div class="swiper-slide">
+                                                <div class="ms-item_fs fl-wrap full-height">
+                                                    <div class="bg" data-bg="{%static 'images/home_banner2.jpg' %}"></div>
+                                                    <div class="overlay op7"></div>
+                                                </div>
+                                            </div>
+                                            <!--ms_item end-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--ms-container end-->
+                            </div>
+                        </div>
+                        <div class="container small-container">
+                            <div class="intro-item fl-wrap">
+                                <span class="section-separator"></span>
+                                <div class="bubbles">
+                                    <h1>Explore professionals in the City</h1>
+                                </div>
+
+                            </div>
+                            <!-- main-search-input-tabs-->
+
+                            <!-- main-search-input-tabs end-->
+
+                        </div>
+                        <div class="header-sec-link">
+                            <a href="#sec1" class="custom-scroll-link"><i class="fal fa-angle-double-down"></i></a>
+                        </div>
+                    </section>
+                    <!--section end-->
+                    <!--section  -->
+                    <section class="slw-sec" id="sec1">
+                        <div class="section-title">
+                            <h2>The Latest Listings</h2>
+                            <div class="section-subtitle">Newest  Listings</div>
+                            <span class="section-separator"></span>
+                            <p>Mauris ac maximus neque. Nam in mauris quis libero sodales eleifend. Morbi varius, nulla sit amet rutrum elementum.</p>
+                        </div>
+                        <div class="listing-slider-wrap fl-wrap">
+                            <div class="listing-slider fl-wrap">
+                                <div class="swiper-container">
+                                    <div class="swiper-wrapper">
+                                        <!--  swiper-slide  -->
+                                        <div class="swiper-slide">
+                                            <div class="listing-slider-item fl-wrap">
+                                                <!-- listing-item  -->
+                                                {% for designer in designer_list_home %}
+
+                                              <div class="listing-item listing_carditem">
+
+                                                  <article class="geodir-category-listing fl-wrap">
+                                                      <div class="geodir-category-img">
+                                                          <div class="geodir-js-favorite_btn"><i class="fal fa-heart"></i><span>Save</span></div>
+                                                          <a href="listing-single.html" class="geodir-category-img-wrap fl-wrap">
+                                                          <img src="{{designer.banner_image.url }}" alt="">
+                                                          </a>
+                                                          <div class="geodir_status_date gsd_open"><i class="fal fa-lock-open"></i>{{designer.style}}</div>
+                                                          <div class="geodir-category-opt">
+                                                              <div class="geodir-category-opt_title">
+                                                                  <h4><a href="{% url 'designers:designer_detail' designer.slug %}">{{designer.company_name}}</a></h4>
+                                                                  <div class="geodir-category-location"><a href="{% url 'designers:designer_detail' designer.slug %}"><i class="fas fa-map-marker-alt"></i>  {{designer.address}}</a></div>
+                                                              </div>
+                                                              <div class="listing-rating-count-wrap">
+
+                                                                  <div class="reviews-count">{{designer.website}}</div>
+                                                              </div>
+                                                              <div class="listing_carditem_footer fl-wrap">
+                                                                  <a class="listing-item-category-wrap" href="#">
+                                                                      <div class="listing-item-category red-bg"><i class="fal fa-cheeseburger"></i></div>
+                                                                      <span>{{designer.category}}</span>
+                                                                  </a>
+
+                                                                  <div class="post-author"><a href=""><img src="{{designer.profile_image.url }}" alt=""><span>By , {{designer.name}}</span></a></div>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </article>
+
+                                              </div>
+                                               {% endfor %}
+                                                <!-- listing-item end -->
+                                            </div>
+                                        </div>
+                                        <!--  swiper-slide end  -->
+                                        <!--  swiper-slide  -->
+                                        <div class="swiper-slide">
+                                            <div class="listing-slider-item fl-wrap">
+                                                <!-- listing-item  -->
+                                                {% for architect in architect_list_home %}
+
+                                              <div class="listing-item listing_carditem">
+
+                                                  <article class="geodir-category-listing fl-wrap">
+                                                      <div class="geodir-category-img">
+                                                          <div class="geodir-js-favorite_btn"><i class="fal fa-heart"></i><span>Save</span></div>
+                                                          <a href="listing-single.html" class="geodir-category-img-wrap fl-wrap">
+                                                          <img src="{{architect.banner_image.url }}" alt="">
+                                                          </a>
+                                                          <div class="geodir_status_date gsd_open"><i class="fal fa-lock-open"></i>{{architect.style}}</div>
+                                                          <div class="geodir-category-opt">
+                                                              <div class="geodir-category-opt_title">
+                                                                  <h4><a href="{% url 'architects:architect_detail' architect.slug %}">{{architect.company_name}}</a></h4>
+                                                                  <div class="geodir-category-location"><a href="{% url 'architects:architect_detail' architect.slug %}"><i class="fas fa-map-marker-alt"></i>  {{architect.address}}</a></div>
+                                                              </div>
+                                                              <div class="listing-rating-count-wrap">
+
+                                                                  <div class="reviews-count">{{architect.website}}</div>
+                                                              </div>
+                                                              <div class="listing_carditem_footer fl-wrap">
+                                                                  <a class="listing-item-category-wrap" href="#">
+                                                                      <div class="listing-item-category red-bg"><i class="fal fa-cheeseburger"></i></div>
+                                                                      <span>{{architect.category}}</span>
+                                                                  </a>
+
+                                                                  <div class="post-author"><a href=""><img src="{{architect.profile_image.url }}" alt=""><span>By , {{architect.name}}</span></a></div>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </article>
+
+                                              </div>
+                                               {% endfor %}
+                                                <!-- listing-item end -->
+                                            </div>
+                                        </div>
+                                        <!--  swiper-slide end  -->
+                                        <!--  swiper-slide  -->
+                                        <div class="swiper-slide">
+                                            <div class="listing-slider-item fl-wrap">
+                                                <!-- listing-item  -->
+                                                {% for property in property_list_home %}
+
+                                              <div class="listing-item listing_carditem">
+
+                                                  <article class="geodir-category-listing fl-wrap">
+                                                      <div class="geodir-category-img">
+                                                          <div class="geodir-js-favorite_btn"><i class="fal fa-heart"></i><span>Save</span></div>
+                                                          <a href="{% url 'properties:property_detail' property.slug %}" class="geodir-category-img-wrap fl-wrap">
+                                                          <img src="{{property.property_image.url}}" alt="">
+                                                          </a>
+                                                          <div class="geodir_status_date gsd_open"><i class="fal fa-lock-open"></i>{{property.property_type}}</div>
+                                                          <div class="geodir-category-opt">
+                                                              <div class="geodir-category-opt_title">
+                                                                  <h4><a href="{% url 'properties:property_detail' property.slug %}">{{property.name}}</a></h4>
+                                                                  <div class="geodir-category-location"><a href="{% url 'properties:property_detail' property.slug %}"><i class="fas fa-map-marker-alt"></i>  {{property.address}}</a></div>
+                                                              </div>
+                                                              <div class="listing-rating-count-wrap">
+
+                                                                  <div class="reviews-count">{{property.website}}</div>
+                                                              </div>
+                                                              <div class="listing_carditem_footer fl-wrap">
+                                                                  <a class="listing-item-category-wrap" href="#">
+                                                                      <div class="listing-item-category red-bg"><i class="fal fa-cheeseburger"></i></div>
+                                                                      <span>{{property.category}}</span>
+                                                                  </a>
+
+                                                                  <div class="post-author"><a href=""><img src="{{property.profile_pic.url}}" alt=""><span>By , {{property.builder_name}}</span></a></div>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </article>
+
+                                              </div>
+                                               {% endfor %}
+                                                <!-- listing-item end -->
+                                            </div>
+                                        </div>
+                                        <!--  swiper-slide end  -->
+                                        <!--  swiper-slide  -->
+                                        
+                                        <!--  swiper-slide end  -->
+                                    </div>
+                                </div>
+                                <div class="listing-carousel-button listing-carousel-button-next2"><i class="fas fa-caret-right"></i></div>
+                                <div class="listing-carousel-button listing-carousel-button-prev2"><i class="fas fa-caret-left"></i></div>
+                            </div>
+                            <div class="tc-pagination_wrap">
+                                <div class="tc-pagination2"></div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--section end-->
+                    <div class="sec-circle fl-wrap"></div>
+                    <!--section -->
+
+                    <!--  section  -->
+                    <!--section end-->
+
+                    <!--section end-->
+                    <!--section  -->
+
+                    <!--section end-->
+                    <!--section  -->
+                    <section      data-scrollax-parent="true">
+                        <div class="container">
+                            <div class="section-title">
+                                <h2>How it works</h2>
+                                <div class="section-subtitle">Explore &amp; IUNGO </div>
+                                <span class="section-separator"></span>
+                                <p>Let’s find a professional in iungo's website that’s perfect for your work.</p>
+                            </div>
+                            <div class="process-wrap fl-wrap">
+                                <ul class="no-list-style">
+                                    <li>
+                                        <div class="process-item">
+                                            <span class="process-count">01 </span>
+                                            <div class="time-line-icon"><i class="fal fa-map-marker-alt"></i></div>
+                                            <h4> Get Info</h4>
+                                            <p> Get important information on the professional you're most interested in working for you..</p>
+                                        </div>
+                                        <span class="pr-dec"></span>
+                                    </li>
+                                    <li>
+                                        <div class="process-item">
+                                            <span class="process-count">02</span>
+                                            <div class="time-line-icon"><i class="fal fa-mail-bulk"></i></div>
+                                            <h4> Contact a Few Professionals</h4>
+                                            <p>Find Professionals from iungo who can offer competitive rates and help you with your pre-approval of the deal..</p>
+                                        </div>
+                                        <span class="pr-dec"></span>
+                                    </li>
+                                    <li>
+                                        <div class="process-item">
+                                            <span class="process-count">03</span>
+                                            <div class="time-line-icon"><i class="fal fa-layer-plus"></i></div>
+                                            <h4>Finalize the Professional</h4>
+                                            <p>Let’s finalize a professional that’s perfect for your work using IUNGO.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="process-end"><i class="fal fa-check"></i></div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--section end-->
+                    <!--section  -->
+                    <section class="gradient-bg hidden-section" data-scrollax-parent="true">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="colomn-text  pad-top-column-text fl-wrap">
+                                        <div class="colomn-text-title">
+                                            <h3>Iungo for business</h3>
+                                            <p>Iungo is your one stop solution specially crafted for all your business requirements! Manage your design projects, get appointments; grow your business flawlessly in the real estate industry. </p>
+                                            <a href = "{% url 'webapp:register' %}"class=" down-btn color3-bg">  Join Iungo Today! </a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="collage-image">
+                                        <img src="{% static 'images/api.png' %}" class="main-collage-image" alt="">
+                                        <div class="images-collage-title color2-bg icdec"> <img src="{% static 'images/logoiungo.png' %}"    alt=""></div>
+                                        <div class="images-collage_icon green-bg" style="right:-20px; top:120px;"><i class="fal fa-thumbs-up"></i></div>
+                                        <div class="collage-image-min cim_1"><img src="{% static 'images/1i.png' %}" alt=""></div>
+                                        <div class="collage-image-min cim_2"><img src="{% static 'images/1i.png' %}" alt=""></div>
+                                        <div class="collage-image-btn green-bg">enquire now</div>
+                                        <div class="collage-image-input">Search <i class="fa fa-search"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gradient-bg-figure" style="right:-30px;top:10px;"></div>
+                        <div class="gradient-bg-figure" style="left:-20px;bottom:30px;"></div>
+                        <div class="circle-wrap" style="left:270px;top:120px;" data-scrollax="properties: { translateY: '-200px' }">
+                            <div class="circle_bg-bal circle_bg-bal_small"></div>
+                        </div>
+                        <div class="circle-wrap" style="right:420px;bottom:-70px;" data-scrollax="properties: { translateY: '150px' }">
+                            <div class="circle_bg-bal circle_bg-bal_big"></div>
+                        </div>
+                        <div class="circle-wrap" style="left:420px;top:-70px;" data-scrollax="properties: { translateY: '100px' }">
+                            <div class="circle_bg-bal circle_bg-bal_big"></div>
+                        </div>
+                        <div class="circle-wrap" style="left:40%;bottom:-70px;"  >
+                            <div class="circle_bg-bal circle_bg-bal_middle"></div>
+                        </div>
+                        <div class="circle-wrap" style="right:40%;top:-10px;"  >
+                            <div class="circle_bg-bal circle_bg-bal_versmall" data-scrollax="properties: { translateY: '-350px' }"></div>
+                        </div>
+                        <div class="circle-wrap" style="right:55%;top:90px;"  >
+                            <div class="circle_bg-bal circle_bg-bal_versmall" data-scrollax="properties: { translateY: '-350px' }"></div>
+                        </div>
+                    </section>
+                    <!--section end-->
+                    <!--section  -->
+                     <section>
+                        <div class="container">
+                            <div class="section-title">
+                                <h2>Iungo family</h2>
+                                <div class="section-subtitle">Testinomials</div>
+                                <span class="section-separator"></span>
+                                <p>How IUNGO is Helping customers and professionals?</p>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="testimonilas-carousel-wrap fl-wrap">
+                            <div class="listing-carousel-button listing-carousel-button-next"><i class="fas fa-caret-right"></i></div>
+                            <div class="listing-carousel-button listing-carousel-button-prev"><i class="fas fa-caret-left"></i></div>
+                            <div class="testimonilas-carousel">
+                                <div class="swiper-container">
+                                    <div class="swiper-wrapper">
+                                        <!--testi-item-->
+                                        {% for testinomial in testinomial_list %}
+
+                                        <div class="swiper-slide">
+                                            <div class="testi-item fl-wrap">
+                                                <div class="testi-avatar"><img src="{{testinomial.profile_pic.url}}" alt=""></div>
+                                                <div class="testimonilas-text fl-wrap">
+                                                    <div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div>
+                                                    <p>"{{testinomial.content}} "</p>
+                                                    <a href="#" class="testi-link" target="_blank">{{testinomial.via}}</a>
+                                                    <div class="testimonilas-avatar fl-wrap">
+                                                        <h3>{{testinomial.name}}</h3>
+                                                        <h4> {{testinomial.revied_by}}</h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {% endfor %}
+                                        <!--testi-item end-->
+                                        <!--testi-item-->
+
+                                        <!--testi-item end-->
+                                        <!--testi-item-->
+
+                                        <!--testi-item end-->
+                                        <!--testi-item-->
+
+                                        <!--testi-item end-->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tc-pagination"></div>
+                        </div>
+
+                    </section>
+                    <!--section end-->
+                    <!--section  -->
+
+                    <!--section end-->
+                </div>
+                <!--content end-->
+            </div>
+            <!-- wrapper end-->
+            <!--footer -->
+{% endblock body %}

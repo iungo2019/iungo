@@ -1,0 +1,220 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% load bootstrap4 %}
+
+{% block body %}
+            <!-- header end-->
+            <!-- wrapper-->
+            <div id="wrapper">
+                <!-- content-->
+                <div class="content">
+                    <section class="gray-bg no-top-padding-sec" id="sec1">
+                        <div class="container">
+                            <div class="breadcrumbs inline-breadcrumbs fl-wrap block-breadcrumbs">
+                                <a href="#">Home</a><a href="#">Blog</a> <span>Blog Single</span> 
+                                <div  class="showshare brd-show-share color2-bg"> <i class="fas fa-share"></i> Share </div>
+                            </div>
+                            <div class="share-holder hid-share sing-page-share top_sing-page-share">
+                                <div class="share-container  isShare"></div>
+                            </div>
+                            <div class="post-container fl-wrap">
+                                <div class="row">
+                                    <!-- blog content-->
+                                    <div class="col-md-8">
+                                        <!-- article> --> 
+                                        <article class="post-article single-post-article">
+                                            <div class="list-single-main-media fl-wrap">
+                                                <div class="single-slider-wrap">
+                                                    <div class="single-slider fl-wrap">
+                                                        <div class="swiper-container">
+                                                            <div class="swiper-wrapper lightgallery">
+                                                                <div class="swiper-slide hov_zoom"><img src="{{post_detail.post_image.url}}" alt=""><a href="{{post_detail.post_image.url}}"class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a></div>
+                                                                <div class="swiper-slide hov_zoom"><img src="{{post_detail.post_image.url}}" alt=""><a href="{{post_detail.post_image.url}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a></div>
+                                                                <div class="swiper-slide hov_zoom"><img src="{{post_detail.post_image.url}}" alt=""><a href="{{post_detail.post_image.url}}" class="box-media-zoom   popup-image"><i class="fal fa-search"></i></a></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="listing-carousel_pagination">
+                                                        <div class="listing-carousel_pagination-wrap">
+                                                            <div class="ss-slider-pagination"></div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="ss-slider-cont ss-slider-cont-prev color2-bg"><i class="fal fa-long-arrow-left"></i></div>
+                                                    <div class="ss-slider-cont ss-slider-cont-next color2-bg"><i class="fal fa-long-arrow-right"></i></div>
+                                                </div>
+                                            </div>
+                                            <div class="list-single-main-item fl-wrap block_box">
+                                                <h2 class="post-opt-title"><a>{{post_detail.title}}.</a></h2>
+                                                <div class="post-author"><a><img src="{{post_detail.profile_image.url}}" alt=""><span>By , {{post_detail.author}}</span></a></div>
+                                                <div class="post-opt">
+                                                    <ul class="no-list-style">
+                                                        <li><i class="fal fa-calendar"></i> <span>{{post_detail.created}}</span></li>
+                                                        <li><i class="fal fa-eye"></i> <span>264</span></li>
+                                                        <li><i class="fal fa-tags"></i> 
+                                                        	 {% for tag in post_detail.tags.all %}
+                                                            <a href="{% url 'blog:post_by_tag' tag %}">{{tag.name}}</a>
+                                                          {% endfor %}  
+                                                       </li>
+                                                    </ul>
+                                                </div>
+                                                <span class="fw-separator"></span> 
+                                                <div class="clearfix"></div>
+                                                <p>{{post_detail.content}}.</p>
+                                                <blockquote>
+                                                    <p>{{post_detail.short_content}}</p>
+                                                </blockquote>
+
+                                                <span class="fw-separator"></span> 
+                                                <div class="list-single-tags tags-stylwrap">
+                                                    <span class="tags-title"><i class="fas fa-tag"></i> Tags : </span>
+                                                     {% for tag in post_detail.tags.all %}
+                                                        <a href="{% url 'blog:post_by_tag' tag %}">{{tag.name}}</a>
+                                                      {% endfor %}  
+                                                                               
+                                                </div>
+                                            </div>
+                                        </article>
+                                        <!-- article end --> 
+                                        <!-- post nav --> 
+                                        
+                                        <!-- post nav end --> 
+                                        <!-- list-single-main-item -->   
+                                        <div class="list-single-main-item fl-wrap block_box">
+                                            <div class="list-single-main-item-title">
+                                                <h3>Post Comments</h3>
+                                            </div>
+                                             {% for comment in comments %}  
+                                            <div class="list-single-main-item_content fl-wrap">
+                                                <div class="reviews-comments-wrap">
+                                                    <!-- reviews-comments-item --> 
+
+                                                
+                                                    <div class="reviews-comments-item only-comments">
+                                                        <div class="review-comments-avatar">
+                                                            <img src="{% static 'images/avatar/1.jpg' %}" alt=""> 
+                                                        </div>
+                                                        <div class="reviews-comments-item-text fl-wrap">
+                                                            <div class="reviews-comments-header fl-wrap">
+                                                                <h4>{{comment.user}}</h4>
+                                                            </div>
+                                                            <p>" {{comment.content}} "</p>
+                                                            <div class="reviews-comments-item-footer fl-wrap">
+                                                                <div class="reviews-comments-item-date"><span><i class="far fa-calendar-check"></i>{{comment.created}}</span></div>
+                                                               
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!--reviews-comments-item end--> 
+                                                    <!-- reviews-comments-item -->  
+          
+                                                    <!--reviews-comments-item end-->                                                                  
+                                                </div>
+                                            </div>
+
+                                                  {% endfor %}
+                                        </div>
+                                        <!-- list-single-main-item end -->                                       
+                                        <!-- list-single-main-item -->   
+                                        <div class="list-single-main-item fl-wrap block_box" id="sec6">
+                                            <div class="list-single-main-item-title fl-wrap">
+                                                <h3>Add Comment</h3>
+                                            </div>
+                                            <!-- Add Review Box -->
+
+                                            <div id="add-review" class="add-review-box">
+                                                <!-- Review Comment -->
+                                                <div class="col-md-10">
+                                                <div class="custom-form">
+                                                    <fieldset>
+                                                    <form method="POST">
+                                                    {% csrf_token %}
+                                                    {% bootstrap_form comment_form %}
+                                                    {% buttons %}
+                                                    <button type="submit" style="background-color:blue;" class="btn btn-primary">SUBMIT</button> 
+                                                    {% endbuttons%}
+                                                    </form>
+                                                     </fieldset>
+                                                </div>
+                                                 </div>
+                                            </div>
+                                            <!-- Add Review Box / End -->
+                                        </div>
+                                        <!-- list-single-main-item end -->                                               
+                                    </div>
+                                    <!-- blog conten end-->
+                                    <!-- blog sidebar -->
+                                    <div class="col-md-4">
+                                        <div class="box-widget-wrap fl-wrap fixed-bar">
+                                            <!--box-widget-item -->
+                                            <div class="box-widget-item fl-wrap block_box">
+                                                <div class="box-widget-item-header">
+                                                    <h3>Search In Blog</h3>
+                                                </div>
+                                                <div class="box-widget fl-wrap">
+                                                    <div class="box-widget-content">
+                                                        <div class="search-widget">
+                                                            <form action="{% url 'blog:post_list' %}" class="fl-wrap">
+                                                                <input name="q" id="se" type="text" class="search" placeholder="Search.." value="{{request.GET.q}}" />
+                                                                <button class="search-submit color2-bg" id="submit_btn"><i class="fal fa-search"></i> </button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--box-widget-item end -->  
+                                            <!--box-widget-item -->
+                                           
+                                            <!--box-widget-item end -->                                     
+                                            <!--box-widget-item -->
+                                            
+                                            <!--box-widget-item end -->                                        
+                                            <!--box-widget-item -->
+                                            <div class="box-widget-item fl-wrap block_box">
+                                                <div class="box-widget-item-header">
+                                                    <h3>Popular Tags</h3>
+                                                </div>
+                                                <div class="box-widget fl-wrap">
+                                                    <div class="box-widget-content">
+                                                        <div class="list-single-tags tags-stylwrap">
+                                                          {% for tag in all_tags %}
+                                                            <a href="{% url 'blog:post_by_tag' tag %}">{{tag.name}}</a>
+                                                          {% endfor %}                                                                          
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--box-widget-item end -->                                     
+                                            <!--box-widget-item -->
+                                            <div class="box-widget-item fl-wrap block_box">
+                                                <div class="box-widget-item-header">
+                                                    <h3>Popular Categories</h3>
+                                                </div>
+                                                <div class="box-widget fl-wrap">
+                                                    <div class="box-widget-content">
+                                                    	{% for category in category_list %}
+                                                        <ul class="cat-item no-list-style">
+                                                            <li><a href="{% url 'blog:post_by_category' category %}">{{category}}</a> <span>{{category.total_post}}</span></li>
+                                                        </ul>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--box-widget-item end -->                                   
+                                        </div>
+                                    </div>
+                                    <!-- blog sidebar end -->
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="limit-box fl-wrap"></div>
+                </div>
+                <!--content end-->
+            </div>
+            <!-- wrapper end-->
+            <!--footer -->
+{% endblock body %}

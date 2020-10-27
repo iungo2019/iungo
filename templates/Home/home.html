@@ -1,0 +1,629 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+
+{% block body %}
+
+            <!-- header end-->
+            <!-- wrapper-->
+            <div id="wrapper">
+                <!-- content-->
+                <div class="content">
+                    <!--section  -->
+                    <section class="hero-section"   data-scrollax-parent="true">
+                        <div class="bg-tabs-wrap">
+                            <div class="bg-parallax-wrap" data-scrollax="properties: { translateY: '200px' }">
+                                <!--ms-container-->
+                                <div class="slideshow-container" data-scrollax="properties: { translateY: '300px' }" >
+                                    <div class="swiper-container">
+                                        <div class="swiper-wrapper">
+                                            <!--ms_item-->
+                                            <div class="swiper-slide">
+                                                <div class="ms-item_fs fl-wrap full-height">
+                                                    <div class="bg" data-bg="{%static 'images/home_banner.jpg' %}"></div>
+                                                    <div class="overlay op7"></div>
+                                                </div>
+                                            </div>
+                                            <!--ms_item end-->
+                                            <!--ms_item-->
+                                            <div class="swiper-slide ">
+                                                <div class="ms-item_fs fl-wrap full-height">
+                                                    <div class="bg" data-bg="{%static 'images/home_banner1.jpg' %}"></div>
+                                                    <div class="overlay op7"></div>
+                                                </div>
+                                            </div>
+                                            <!--ms_item end-->
+                                            <!--ms_item-->
+                                            <div class="swiper-slide">
+                                                <div class="ms-item_fs fl-wrap full-height">
+                                                    <div class="bg" data-bg="{%static 'images/home_banner2.jpg' %}"></div>
+                                                    <div class="overlay op7"></div>
+                                                </div>
+                                            </div>
+                                            <!--ms_item end-->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--ms-container end-->
+                            </div>
+                        </div>
+                        <div class="container small-container">
+                            <div class="intro-item fl-wrap">
+                                <span class="section-separator"></span>
+                                <div class="bubbles">
+                                    <h1>Find top-rated, certified pros for your project</h1>
+                                </div>
+
+                            </div>
+                            <!-- main-search-input-tabs-->
+                            <div class="main-search-input-tabs  tabs-act fl-wrap">
+
+                                <!--tabs -->
+
+                                <!--tabs end-->
+                            </div>
+                            <!-- main-search-input-tabs end-->
+
+                        </div>
+                        <div class="header-sec-link">
+                            <a href="#sec1" class="custom-scroll-link"><i class="fal fa-angle-double-down"></i></a>
+                        </div>
+                    </section>
+                    <!--section end-->
+                    <!--section  -->
+                    <section class="slw-sec" id="sec1">
+                        <div class="section-title">
+                            <h2>Our Designers</h2>
+                            <div class="section-subtitle">IUNGO's Designers</div>
+                            <span class="section-separator"></span>
+                            <p>Your design, our expertise! From modern to minimal, Iungo has designers for all your personalised needs! </p>
+                        </div>
+
+                        <div class="listing-slider-wrap fl-wrap">
+
+
+                            <div class="listing-slider fl-wrap">
+                                <div class="swiper-container">
+                                    {% for designer in designer_list_home %}
+                                    <div class="swiper-wrapper">
+                                        <!--  swiper-slide  -->
+                                        <div class="swiper-slide">
+                                            <div class="listing-slider-item fl-wrap">
+                                                <!-- listing-item  -->
+
+                                                <div class="listing-item">
+                                                   <article class="geodir-category-listing fl-wrap">
+                                                        <div class="geodir-category-img">
+                                                         <!--div class="geodir-js-favorite_btn"><i class="fal fa-heart"></i><span>Save</span></div-->
+                                                            <a href="{% url 'designers:designer_detail' designer.slug %}" class="geodir-category-img-wrap fl-wrap">
+                                                                <img src="{{designer.banner_image.url}}" alt="">
+                                                            </a>
+                                                            <div class="listing-avatar"><a href="{% url 'designers:designer_detail' designer.slug %}"><img src="{{designer.profile_image.url}}" alt=""></a>
+                                                            <span class="avatar-tooltip">Added By  <strong>{{designer.name}}</strong></span>
+                                                            </div>
+                                                            <div class="geodir_status_date gsd_open">{{designer.category}}</div>
+
+                                                        </div>
+                                                        <div class="geodir-category-content fl-wrap title-sin_item">
+                                                            <div class="geodir-category-content-title fl-wrap">
+                                                                <div class="geodir-category-content-title-item">
+                                                                    <h3 class="title-sin_map"><a href="{% url 'designers:designer_detail' designer.slug %}">{{designer.company_name}}</a><span class="verified-badge"><i class="fal fa-check"></i></span></h3>
+
+                                                                     </br></br>
+                                                                    <div class="geodir-category-location fl-wrap"><a><i class="fas fa-map-marker-alt"></i>{{designer.address}}</a></div>
+                                                                    </br></br></br>
+                                                                    <div class="geodir-category-location fl-wrap"><a><i class="fas fa-globe"></i>{{designer.website}}</a></div>
+                                                                    </br></br>
+                                                                    <div class="geodir-category-location fl-wrap"><a><i class="fas fa-map-marker-alt"></i> {{designer.experience}}  Years of experience</a></div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+
+
+
+						                               <div class="geodir-category-text fl-wrap">
+                                                            <p class="small-text">{{designer.short_description}}</p>
+                                                            <div class="facilities-list fl-wrap">
+                                                                <div class="facilities-list-title">Find us on : </div>
+                                                                <ul class="no-list-style">
+
+                                                                    <li class="tolt"  data-microtip-position="top" data-tooltip="facebook"><a href="{{designer.facebook_link}}"><i class="fab fa-facebook-f"></i>
+                                                                    </li>
+                                                                    <li class="tolt"  data-microtip-position="top" data-tooltip="instagram"><a href="{{designer.instagram_link}}"><i class="fab fa-instagram"></i>
+                                                                    </li>
+                                                                    <li class="tolt"  data-microtip-position="top" data-tooltip="youtube"><a href="{{designer.youtube_link}}"><i class="fab fa-youtube"></i>
+                                                                    </li>
+                                                                    <li class="tolt"  data-microtip-position="top" data-tooltip="whatsapp"><a href="{{designer.whatsapp_link}}"><i class="fab fa-whatsapp"></i>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+
+
+                                                        <div class="geodir-category-footer fl-wrap">
+                                                            <a class="listing-item-category-wrap">
+                                                                <div class="listing-item-category red-bg"><i class="fal fa-house"></i></div>
+                                                                <span>Budget Range &nbsp : {{designer.min_budget}} -- &nbsp{{designer.max_budget}} lacs</span>
+                                                            </a>
+                                                            <div class="geodir-opt-list">
+                                                                <ul class="no-list-style">
+                                                                    <li><a href="#" class="show_gcc"><i class="fal fa-envelope"></i><span class="geodir-opt-tooltip">Contact Info</span></a></li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+
+
+
+
+                                                        <div class="geodir-category_contacts">
+                                                            <div class="close_gcc"><i class="fal fa-times-circle"></i></div>
+                                                            <ul class="no-list-style">
+                                                                <li><span><i class="fal fa-phone"></i> Call : </span><a href="#">+91 {{designer.phone_number}}</a></li>
+                                                                <li><span><i class="fal fa-envelope"></i> Write : </span><a href="#">{{designer.email}}</a></li>
+                                                            </ul>
+                                                        </div>
+                                                    </article>
+										        </div>
+									        </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+								</div>
+
+
+
+
+                                <div class="listing-carousel-button listing-carousel-button-next2"><i class="fas fa-caret-right"></i></div>
+                                <div class="listing-carousel-button listing-carousel-button-prev2"><i class="fas fa-caret-left"></i></div>
+                            </div>
+
+                        </div>
+                    </section>
+                    <!--section end-->
+					<div class="sec-circle fl-wrap"></div>
+
+                    <!--  section  -->
+                    <!--section end-->
+                    <!--section class="parallax-section small-par" data-scrollax-parent="true">
+                        <div class="bg par-elem "  data-bg="images/bg/1.jpg" data-scrollax="properties: { translateY: '30%' }"></div>
+                        <div class="overlay  op7"></div>
+                        <div class="container">
+                            <div class=" single-facts single-facts_2 fl-wrap">
+
+                                <div class="inline-facts-wrap">
+                                    <div class="inline-facts">
+                                        <div class="milestone-counter">
+                                            <div class="stats animaper">
+                                                <div class="num" data-content="0" data-num="1254">1254</div>
+                                            </div>
+                                        </div>
+                                        <h6>New Designers Every Week</h6>
+                                    </div>
+                                </div>
+
+
+                                <div class="inline-facts-wrap">
+                                    <div class="inline-facts">
+                                        <div class="milestone-counter">
+                                            <div class="stats animaper">
+                                                <div class="num" data-content="0" data-num="12168">12168</div>
+                                            </div>
+                                        </div>
+                                        <h6>Happy clients</h6>
+                                    </div>
+                                </div>
+
+                                <div class="inline-facts-wrap">
+                                    <div class="inline-facts">
+                                        <div class="milestone-counter">
+                                            <div class="stats animaper">
+                                                <div class="num" data-content="0" data-num="2172">2172</div>
+                                            </div>
+                                        </div>
+                                        <h6>Leads generated</h6>
+                                    </div>
+                                </div>
+
+                                <div class="inline-facts-wrap">
+                                    <div class="inline-facts">
+                                        <div class="milestone-counter">
+                                            <div class="stats animaper">
+                                                <div class="num" data-content="0" data-num="732">732</div>
+                                            </div>
+                                        </div>
+                                        <h6>New listings every week</h6>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section-->
+                    <!--section end-->
+                    <!--section  -->
+                        <section class="slw-sec">
+                        <div class="section-title">
+                            <h2> Properties</h2>
+                            <div class="section-subtitle">IUNGO properties</div>
+                            <span class="section-separator"></span>
+                            <p>Collaborate with pros real time, quickly find space on everybody’s calendar, and take meetings from anywhere.</p>
+                        </div>
+                        <div class="listing-slider-wrap fl-wrap">
+                            <div class="listing-slider fl-wrap">
+                                <div class="swiper-container">
+                                    <div class="swiper-wrapper">
+                                        <!--  swiper-slide  -->
+                                        <div class="swiper-slide">
+                                            <div class="listing-slider-item fl-wrap">
+                                                <!-- listing-item  -->
+                                             {% for property in property_list_home %}
+                                                <div class="listing-item">
+                                                    <article class="geodir-category-listing fl-wrap">
+                                                     <div class="geodir-category-img">
+                                            <!--div class="geodir-js-favorite_btn"><i class="fal fa-heart"></i><span>Save</span></div-->
+                                            <a href="{% url 'property:property_detail' property.slug %}" class="geodir-category-img-wrap fl-wrap">
+                                                <img src="{{property.property_image.url}}" alt="">
+                                            </a>
+                                            <div class="listing-avatar"><a href="{% url 'property:property_detail' property.slug %}"><img src="{{property.profile_pic.url}}" alt=""></a>
+                                                <span class="avatar-tooltip">Added By  <strong>{{property.builder_name}}</strong></span>
+                                            </div>
+                                            <div class="geodir_status_date gsd_open"> For {{property.property_type}}</div>
+                                            <div class="geodir-category-opt">
+                                            </div>
+                                </div>
+                                <div class="geodir-category-content fl-wrap title-sin_item">
+                                    <div class="geodir-category-content-title fl-wrap">
+                                        <div class="geodir-category-content-title-item">
+                                            <h3 class="title-sin_map"><a href="{% url 'property:property_detail' property.slug %}">{{property.name}}</a><span class="verified-badge"><i class="fal fa-check"></i></span></h3>
+
+                                        </br></br>
+                                        <div class="geodir-category-location fl-wrap"><a><i class="fas fa-map-marker-alt"></i>{{property.address}}</a></div>
+                                    </br></br>
+                                    <div class="geodir-category-location fl-wrap"><a><i class="fas fa-globe"></i>{{property.website}}</a></div>
+                                </br></br>
+                                <div class="geodir-category-location fl-wrap"><a><i class="fas fa-map-marker-alt"></i> {{property.experience}}  Years of experience</a></div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="geodir-category-text fl-wrap">
+                            <p class="small-text">{{property.short_description}}</p>
+                            <div class="facilities-list fl-wrap">
+                                <div class="facilities-list-title">Find us on : </div>
+                                <ul class="no-list-style">
+
+                                    <li class="tolt"  data-microtip-position="top" data-tooltip="facebook"><a href="{{property.facebook_link}}"><i class="fab fa-facebook-f"></i></li>
+                                        <li class="tolt"  data-microtip-position="top" data-tooltip="instagram"><a href="{{property.instagram_link}}"><i class="fab fa-instagram"></i></li>
+                                            <li class="tolt"  data-microtip-position="top" data-tooltip="youtube"><a href="{{property.youtube_link}}"><i class="fab fa-youtube"></i></li>
+                                                <li class="tolt"  data-microtip-position="top" data-tooltip="whatsapp"><a href="{{property.whatsapp_link}}"><i class="fab fa-whatsapp"></i></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="geodir-category-footer fl-wrap">
+                                            <a class="listing-item-category-wrap">
+                                                <div class="listing-item-category red-bg"><i class="fal fa-house"></i></div>
+                                                <span>Price Range &nbsp : {{property.min_price}} -- &nbsp{{property.min_price}} lacs</span>
+                                            </a>
+                                            <div class="geodir-opt-list">
+                                                <ul class="no-list-style">
+                                                    <li><a href="#" class="show_gcc"><i class="fal fa-envelope"></i><span class="geodir-opt-tooltip">Contact Info</span></a></li>
+                                                </ul>
+                                            </div>
+
+
+
+
+                                            <div class="geodir-category_contacts">
+                                                <div class="close_gcc"><i class="fal fa-times-circle"></i></div>
+                                                <ul class="no-list-style">
+                                                    <li><span><i class="fal fa-phone"></i> Call : </span><a>+91 {{property.phone_number}}</a></li>
+                                                    <li><span><i class="fal fa-envelope"></i> Write : </span><a>{{property.email}}</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+
+                            {% endfor %}
+                                                <!-- listing-item end -->
+                                            </div>
+                                        </div>
+                                        <!--  swiper-slide end  -->
+                                        <!--  swiper-slide  -->
+
+                                        <!--  swiper-slide end  -->
+                                        <!--  swiper-slide  -->
+
+                                        <!--  swiper-slide end  -->
+                                        <!--  swiper-slide  -->
+
+                                        <!--  swiper-slide end  -->
+                                    </div>
+                                </div>
+                                <div class="listing-carousel-button listing-carousel-button-next2"><i class="fas fa-caret-right"></i></div>
+                                <div class="listing-carousel-button listing-carousel-button-prev2"><i class="fas fa-caret-left"></i></div>
+                            </div>
+                            <div class="tc-pagination_wrap">
+                                <div class="tc-pagination2"></div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--section end-->
+                    <!--section  -->
+
+                    <section class="slw-sec">
+                        <div class="section-title">
+                            <h2>Architects</h2>
+                            <div class="section-subtitle">IUNGO's Architects</div>
+                            <span class="section-separator"></span>
+                            <p>Curated archiect solutions from iungo's listed architects to cater your needs! </p>
+                        </div>
+                        <div class="listing-slider-wrap fl-wrap">
+                            <div class="listing-slider fl-wrap">
+                                <div class="swiper-container">
+                                    <div class="swiper-wrapper">
+                                        <!--  swiper-slide  -->
+                                        <div class="swiper-slide">
+                                            <div class="listing-slider-item fl-wrap">
+                                                <!-- listing-item  -->
+
+								{% for architect in architect_list_home %}
+								<div class="listing-item">
+									<article class="geodir-category-listing fl-wrap">
+										<div class="geodir-category-img">
+											<!--div class="geodir-js-favorite_btn"><i class="fal fa-heart"></i><span>Save</span></div-->
+											<a href="{% url 'architects:architect_detail' architect.slug %}" class="geodir-category-img-wrap fl-wrap">
+												<img src="{{architect.banner_image.url}}" alt="">
+											</a>
+											<div class="listing-avatar"><a href="{% url 'architects:architect_detail' architect.slug %}"><img src="{{architect.profile_image.url}}" alt=""></a>
+												<span class="avatar-tooltip">Added By  <strong>{{architect.name}}</strong></span>
+											</div>
+											<div class="geodir_status_date gsd_open">{{architect.category}}</div>
+											<div class="geodir-category-opt">
+										<!--div class="listing-rating-count-wrap">
+											<div class="review-score">4.8</div>
+											<div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div>
+											<br>
+											<div class="reviews-count">12 reviews</div>
+										</div-->
+									</div>
+								</div>
+								<div class="geodir-category-content fl-wrap title-sin_item">
+									<div class="geodir-category-content-title fl-wrap">
+										<div class="geodir-category-content-title-item">
+											<h3 class="title-sin_map"><a href="{% url 'architects:architect_detail' architect.slug %}">{{architect.company_name}}</a><span class="verified-badge"><i class="fal fa-check"></i></span></h3>
+
+										</br></br>
+										<div class="geodir-category-location fl-wrap"><a><i class="fas fa-map-marker-alt"></i>{{architect.address}}</a></div>
+									</br></br></br>
+									<div class="geodir-category-location fl-wrap"><a><i class="fas fa-globe"></i>{{architect.website}}</a></div>
+								</br></br>
+								<div class="geodir-category-location fl-wrap"><a><i class="fas fa-map-marker-alt"></i> {{architect.experience}}  Years of experience</a></div>
+							</div>
+						</div>
+
+
+
+						<div class="geodir-category-text fl-wrap">
+							<p class="small-text">{{architect.short_description}}</p>
+							<div class="facilities-list fl-wrap">
+								<div class="facilities-list-title">Find us on : </div>
+								<ul class="no-list-style">
+
+									<li class="tolt"  data-microtip-position="top" data-tooltip="facebook"><a href="{{architect.facebook_link}}"><i class="fab fa-facebook-f"></i></li>
+										<li class="tolt"  data-microtip-position="top" data-tooltip="instagram"><a href="{{architect.instagram_link}}"><i class="fab fa-instagram"></i></li>
+											<li class="tolt"  data-microtip-position="top" data-tooltip="youtube"><a href="{{architect.youtube_link}}"><i class="fab fa-youtube"></i></li>
+												<li class="tolt"  data-microtip-position="top" data-tooltip="whatsapp"><a href="{{architect.whatsapp_link}}"><i class="fab fa-whatsapp"></i></li>
+												</ul>
+											</div>
+										</div>
+										<div class="geodir-category-footer fl-wrap">
+											<a class="listing-item-category-wrap">
+												<div class="listing-item-category red-bg"><i class="fal fa-house"></i></div>
+												<span>Budget Range &nbsp : {{architect.min_budget}} -- &nbsp{{architect.max_budget}} lacs</span>
+											</a>
+											<div class="geodir-opt-list">
+												<ul class="no-list-style">
+													<li><a href="#" class="show_gcc"><i class="fal fa-envelope"></i><span class="geodir-opt-tooltip">Contact Info</span></a></li>
+												</ul>
+											</div>
+
+
+
+
+											<div class="geodir-category_contacts">
+												<div class="close_gcc"><i class="fal fa-times-circle"></i></div>
+												<ul class="no-list-style">
+													<li><span><i class="fal fa-phone"></i> Call : </span><a>+91 {{architect.phone_number}}</a></li>
+													<li><span><i class="fal fa-envelope"></i> Write : </span><a>{{architect.email}}</a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</article>
+							</div>
+
+							{% endfor %}
+                                                <!-- listing-item end -->
+                                            </div>
+                                        </div>
+                                        <!--  swiper-slide end  -->
+                                        <!--  swiper-slide  -->
+
+                                        <!--  swiper-slide end  -->
+                                        <!--  swiper-slide  -->
+
+                                        <!--  swiper-slide end  -->
+                                        <!--  swiper-slide  -->
+
+                                        <!--  swiper-slide end  -->
+                                    </div>
+                                </div>
+                                <div class="listing-carousel-button listing-carousel-button-next2"><i class="fas fa-caret-right"></i></div>
+                                <div class="listing-carousel-button listing-carousel-button-prev2"><i class="fas fa-caret-left"></i></div>
+                            </div>
+                            <div class="tc-pagination_wrap">
+                                <div class="tc-pagination2"></div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--section end-->
+                    <!--section  -->
+                    <section      data-scrollax-parent="true">
+                        <div class="container">
+                            <div class="section-title">
+                                <h2>How it works</h2>
+                                <div class="section-subtitle">Explore &amp; IUNGO </div>
+                                <span class="section-separator"></span>
+                                <p>Let’s find a professional in iungo's website that’s perfect for your work.</p>
+                            </div>
+                            <div class="process-wrap fl-wrap">
+                                <ul class="no-list-style">
+                                    <li>
+                                        <div class="process-item">
+                                            <span class="process-count">01 </span>
+                                            <div class="time-line-icon"><i class="fal fa-map-marker-alt"></i></div>
+                                            <h4> Get Info</h4>
+                                            <p> Get important information on the professional you're most interested in working for you..</p>
+                                        </div>
+                                        <span class="pr-dec"></span>
+                                    </li>
+                                    <li>
+                                        <div class="process-item">
+                                            <span class="process-count">02</span>
+                                            <div class="time-line-icon"><i class="fal fa-mail-bulk"></i></div>
+                                            <h4> Contact a Few Professionals</h4>
+                                            <p>Find Professionals from iungo who can offer competitive rates and help you with your pre-approval of the deal..</p>
+                                        </div>
+                                        <span class="pr-dec"></span>
+                                    </li>
+                                    <li>
+                                        <div class="process-item">
+                                            <span class="process-count">03</span>
+                                            <div class="time-line-icon"><i class="fal fa-layer-plus"></i></div>
+                                            <h4>Finalize the Professional</h4>
+                                            <p>Let’s finalize a professional that’s perfect for your work using IUNGO.</p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="process-end"><i class="fal fa-check"></i></div>
+                            </div>
+                        </div>
+                    </section>
+                    <!--section end-->
+                    <!--section  -->
+                    <section class="gradient-bg hidden-section" data-scrollax-parent="true">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="colomn-text  pad-top-column-text fl-wrap">
+                                        <div class="colomn-text-title">
+                                            <h3>Iungo for business</h3>
+                                            <p>Iungo is your one stop solution specially crafted for all your business requirements! Manage your design projects, book appointments; grow your business flawlessly in the real estate industry. </p>
+                                            <a href = "{% url 'webapp:cregister' %}"class=" down-btn color3-bg">  Join Iungo Today! </a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="collage-image">
+                                        <img src="{% static 'images/api.png' %}" class="main-collage-image" alt="">
+                                        <div class="images-collage-title color2-bg icdec"> <img src="{% static 'images/logoiungo.png' %}"    alt=""></div>
+                                        <div class="images-collage_icon green-bg" style="right:-20px; top:120px;"><i class="fal fa-thumbs-up"></i></div>
+                                        <div class="collage-image-min cim_1"><img src="{% static 'images/1i.png' %}" alt=""></div>
+                                        <div class="collage-image-min cim_2"><img src="{% static 'images/1i.png' %}" alt=""></div>
+                                        <div class="collage-image-btn green-bg">enquire now</div>
+                                        <div class="collage-image-input">Search <i class="fa fa-search"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gradient-bg-figure" style="right:-30px;top:10px;"></div>
+                        <div class="gradient-bg-figure" style="left:-20px;bottom:30px;"></div>
+                        <div class="circle-wrap" style="left:270px;top:120px;" data-scrollax="properties: { translateY: '-200px' }">
+                            <div class="circle_bg-bal circle_bg-bal_small"></div>
+                        </div>
+                        <div class="circle-wrap" style="right:420px;bottom:-70px;" data-scrollax="properties: { translateY: '150px' }">
+                            <div class="circle_bg-bal circle_bg-bal_big"></div>
+                        </div>
+                        <div class="circle-wrap" style="left:420px;top:-70px;" data-scrollax="properties: { translateY: '100px' }">
+                            <div class="circle_bg-bal circle_bg-bal_big"></div>
+                        </div>
+                        <div class="circle-wrap" style="left:40%;bottom:-70px;"  >
+                            <div class="circle_bg-bal circle_bg-bal_middle"></div>
+                        </div>
+                        <div class="circle-wrap" style="right:40%;top:-10px;"  >
+                            <div class="circle_bg-bal circle_bg-bal_versmall" data-scrollax="properties: { translateY: '-350px' }"></div>
+                        </div>
+                        <div class="circle-wrap" style="right:55%;top:90px;"  >
+                            <div class="circle_bg-bal circle_bg-bal_versmall" data-scrollax="properties: { translateY: '-350px' }"></div>
+                        </div>
+                    </section>
+                    <!--section end-->
+                    <!--section  -->
+                    <section>
+                    	<div class="container">
+                    		<div class="section-title">
+                    			<h2>Iungo family</h2>
+                    			<div class="section-subtitle">Testinomials</div>
+                    			<span class="section-separator"></span>
+                    			<p>How IUNGO is Helping customers and professionals?</p>
+                    		</div>
+                    	</div>
+                    	<div class="clearfix"></div>
+                    	<div class="testimonilas-carousel-wrap fl-wrap">
+                    		<div class="listing-carousel-button listing-carousel-button-next"><i class="fas fa-caret-right"></i></div>
+                    		<div class="listing-carousel-button listing-carousel-button-prev"><i class="fas fa-caret-left"></i></div>
+                    		<div class="testimonilas-carousel">
+                    			<div class="swiper-container">
+                    				<div class="swiper-wrapper">
+                    					<!--testi-item-->
+                    					{% for testinomial in testinomial_list %}
+
+                    					<div class="swiper-slide">
+                    						<div class="testi-item fl-wrap">
+                    							<div class="testi-avatar"><img src="{{testinomial.profile_pic.url}}" alt=""></div>
+                    							<div class="testimonilas-text fl-wrap">
+                    								<div class="listing-rating card-popup-rainingvis" data-starrating2="5"></div>
+                    								<p>"{{testinomial.content}} "</p>
+                    								<a href="#" class="testi-link" target="_blank">{{testinomial.via}}</a>
+                    								<div class="testimonilas-avatar fl-wrap">
+                    									<h3>{{testinomial.name}}</h3>
+                    									<h4> {{testinomial.revied_by}}</h4>
+                    								</div>
+                    							</div>
+                    						</div>
+                    					</div>
+
+                    					{% endfor %}
+                    					<!--testi-item end-->
+                    					<!--testi-item-->
+
+                    					<!--testi-item end-->
+                    					<!--testi-item-->
+
+                    					<!--testi-item end-->
+                    					<!--testi-item-->
+
+                    					<!--testi-item end-->
+                    				</div>
+                    			</div>
+                    		</div>
+                    		<div class="tc-pagination"></div>
+                    	</div>
+
+                    </section>
+                    <!--section end-->
+                    <!--section  -->
+
+                    <!--section end-->
+                </div>
+                <!--content end-->
+            </div>
+            <!-- wrapper end-->
+            <!--footer -->
+           {% endblock body %}

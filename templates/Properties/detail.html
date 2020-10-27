@@ -1,0 +1,527 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load bootstrap4 %}
+
+
+{% block body %}
+
+
+		<!-- header end-->
+		<!-- wrapper-->
+		<div id="wrapper">
+			<!-- content-->
+			<div class="content">
+				<section class="listing-hero-section hidden-section" data-scrollax-parent="true" id="sec1">
+					<div class="bg-parallax-wrap">
+						<!--ms-container-->
+						<div class="slideshow-container" data-scrollax="properties: { translateY: '300px' }" >
+							<div class="swiper-container">
+								<div class="swiper-wrapper">
+									<!--ms_item-->
+									<div class="swiper-slide">
+										<div class="ms-item_fs fl-wrap full-height">
+											<div class="bg" data-bg="{{property_detail.property_image.url}}"></div>
+											<div class="overlay"></div>
+										</div>
+									</div>
+									<!--ms_item end-->
+									<!--ms_item-->
+									<div class="swiper-slide ">
+										<div class="ms-item_fs fl-wrap full-height">
+											<div class="bg" data-bg="{{property_detail.property_detail.url}}"></div>
+											<div class="overlay"></div>
+										</div>
+									</div>
+									<!--ms_item end-->
+									<!--ms_item-->
+									<div class="swiper-slide">
+										<div class="ms-item_fs fl-wrap full-height">
+											<div class="bg" data-bg="{{property_detail.property_detail.url}}"></div>
+											<div class="overlay"></div>
+										</div>
+									</div>
+									<!--ms_item end-->
+								</div>
+							</div>
+						</div>
+						<!--ms-container end-->
+						<div class="overlay"></div>
+					</div>
+					<div class="slide-progress-wrap">
+						<div class="slide-progress"></div>
+					</div>
+					<div class="container">
+						<div class="list-single-header-item  fl-wrap">
+							<div class="row">
+								<div class="col-md-9">
+									<h1>{{property_detail.name}} <span class="verified-badge"><i class="fal fa-check"></i></span></h1>
+									<div class="geodir-category-location fl-wrap"><a><i class="fas fa-map-marker-alt"></i> {{property_detail.address}}</a> <a> <i class="fal fa-phone"></i>+91 {{property_detail.phone_number}}</a> <a><i class="fal fa-envelope"></i> {{property_detail.email}}</a></div>
+								</div>
+
+							</div>
+						</div>
+						<div class="list-single-header_bottom fl-wrap">
+							<a class="listing-item-category-wrap" href="#">
+								<div class="listing-item-category  blue-bg"><i class="fal fa-category"></i></div>
+								<span>{{property_detail.category}} property</span>
+							</a>
+							<div class="list-single-author"> <a><span class="author_avatar"> <img alt='' src='{{property_detail.profile_pic.url}}'>  </span>By {{property_detail.builder_name}}</a></div>
+							<div class="geodir_status_date gsd_close"><i></i>{{property_detail.experience}} + years of experience </div>
+							<div class="list-single-stats">
+								<ul class="no-list-style">
+									<li><span class="viewed-counter"><i class="fas fa-eye"></i> Profile views -  001 </span></li>
+
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+				<!-- scroll-nav-wrapper-->
+				<div class="scroll-nav-wrapper fl-wrap">
+					<div class="container">
+						<nav class="scroll-nav scroll-init">
+							<ul class="no-list-style">
+								<li><a class="act-scrlink" href="#sec1"><i class="fal fa-images"></i> Top</a></li>
+								<li><a href="#sec2"><i class="fal fa-running"></i>Our office </a></li>
+								<li><a href="#sec3"><i class="fal fa-info"></i>Details</a></li>
+								<li><a href="#sec4"><i class="fal fa-image"></i>Project photos</a></li>
+								<li><a href="#sec5"><i class="fal fa-dumbbell"></i>Floor plans</a></li>
+								<li><a href="#sec6"><i class="fal fa-dumbbell"></i>Banks approved </a></li>
+							</ul>
+						</nav>
+						<div class="scroll-nav-wrapper-opt">
+
+							<a href="#" class="scroll-nav-wrapper-opt-btn showshare"> <i class="fas fa-share"></i> Share </a>
+							<div class="share-holder hid-share">
+								<div class="share-container  isShare"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- scroll-nav-wrapper end-->
+				<section class="gray-bg no-top-padding">
+					<div class="container">
+						<div class="breadcrumbs inline-breadcrumbs fl-wrap">
+							<a href="/">Home</a><a href="{% url 'designers:designer_list' %}">Properties</a><a>{{property_detail.slug}}</a>
+						</div>
+						<div class="clearfix"></div>
+						<div class="row">
+							<!-- list-single-main-wrapper-col -->
+							<div class="col-md-8">
+								<!-- list-single-main-wrapper -->
+								<div class="list-single-main-wrapper fl-wrap">
+									<!-- list-single-main-item-->
+									<div class="list-single-main-item fl-wrap block_box" id="sec2">
+										<div class="list-single-main-item-title">
+											<h3>Our office</h3>
+										</div>
+										<div class="list-single-main-item_content fl-wrap">
+											<div class="single-carousel-wrap fl-wrap lightgallery">
+												<div class="sc-next sc-btn color2-bg"><i class="fas fa-caret-right"></i></div>
+												<div class="sc-prev sc-btn color2-bg"><i class="fas fa-caret-left"></i></div>
+												<div class="single-carousel fl-wrap full-height">
+													<div class="swiper-container">
+														<div class="swiper-wrapper">
+															<!-- swiper-slide-->
+															{% for image in builder_office_images %}
+															<div class="swiper-slide">
+																<div class="box-item">
+																	<img  src="{{image.image.url}}"   alt="">
+																	<a href="{{image.image.url}}" class="gal-link popup-image"><i class="fa fa-search"  ></i></a>
+																</div>
+															</div>
+															{% endfor %}
+															<!-- swiper-slide end-->
+															<!-- swiper-slide-->
+															<!-- swiper-slide end-->
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- list-single-main-item end -->
+									<!-- list-single-facts -->
+									<div class="list-single-facts fl-wrap">
+										<div class="row">
+											<div class="col-md-4">
+												<!-- inline-facts -->
+												<div class="inline-facts-wrap gradient-bg ">
+													<div class="inline-facts">
+														<i class="fal fa-smile-plus"></i>
+														<div class="milestone-counter">
+															<div class="stats animaper">
+																<div class="num" data-content="0" data-num="{{property_detail.total_units}}">0</div>
+															</div>
+														</div>
+														<h6>Total Properties</h6>
+													</div>
+													<div class="stat-wave">
+														<svg viewbox="0 0 100 25">
+															<path fill="#fff" d="M0 30 V12 Q30 17 55 2 T100 11 V30z" />
+														</svg>
+													</div>
+												</div>
+												<!-- inline-facts end -->
+											</div>
+											<div class="col-md-4">
+												<!-- inline-facts  -->
+												<div class="inline-facts-wrap gradient-bg ">
+													<div class="inline-facts">
+														<i class="fal fa-users"></i>
+														<div class="milestone-counter">
+															<div class="stats animaper">
+																<div class="num" data-content="0" data-num="{{property_detail.units_sold}}">0</div>
+															</div>
+														</div>
+														<h6>Properties sold</h6>
+													</div>
+													<div class="stat-wave">
+														<svg viewbox="0 0 100 25">
+															<path fill="#fff" d="M0 30 V12 Q30 17 55 12 T100 11 V30z" />
+														</svg>
+													</div>
+												</div>
+												<!-- inline-facts end -->
+											</div>
+											<div class="col-md-4">
+												<!-- inline-facts  -->
+												<div class="inline-facts-wrap gradient-bg ">
+													<div class="inline-facts">
+														<i class="fal fa-award"></i>
+														<div class="milestone-counter">
+															<div class="stats animaper">
+																<div class="num" data-content="0" data-num="{{property_detail.units_available}}">0</div>
+															</div>
+														</div>
+														<h6>Properties available</h6>
+													</div>
+													<div class="stat-wave">
+														<svg viewbox="0 0 100 25">
+															<path fill="#fff" d="M0 30 V12 Q30 12 55 5 T100 11 V30z" />
+														</svg>
+													</div>
+												</div>
+												<!-- inline-facts end -->
+											</div>
+										</div>
+									</div>
+									<!-- list-single-facts end -->
+									<!-- list-single-main-item -->
+									<div class="list-single-main-item fl-wrap block_box" id="sec3">
+										<div class="list-single-main-item-title">
+											<h3>Description</h3>
+										</div>
+										<div class="list-single-main-item_content fl-wrap">
+											<p>{{property_detail.description}}  </p>
+											<a href="{{property_detail.website}}" class="btn color2-bg float-btn">Visit Our Website<i class="fal fa-chevron-right"></i></a>
+										</div>
+									</div>
+									<!-- list-single-main-item end -->
+									<!-- list-single-main-item -->
+									<div class="list-single-main-item fl-wrap block_box">
+										<div class="list-single-main-item-title">
+											<h3>Project details</h3>
+										</div>
+										<div class="list-single-main-item_content fl-wrap">
+											<div class="listing-features fl-wrap">
+												<ul class="no-list-style">
+													<li><a><i class="fa fa-rocket"></i>Configs :
+														{% for area in property_area %}
+
+														{{area.area_configrations}},
+														{% endfor%}
+
+
+													 </a></li> &nbsp &nbsp
+													<li><a><i class="fa fa-rocket"></i> Towers : {{property_detail.no_of_towers}}</a></li>
+													<li><a><i class="fa fa-rocket"></i> Units :  {{property_detail.no_of_units}} </a></li>
+													<li><a><i class="fa fa-wifi"></i> Project area  :  {{property_detail.project_area}} Acres</a></li>
+													<li><a><i class="fa fa-motorcycle"></i>Possesion date  :  {{property_detail.posession_status}} , {{property_detail.posession_year}}</a></li>
+													{% for area in property_area %}
+													<li><a><i class="fa fa-cloud"></i>Area: {{area.area}} sqft</a></li>
+													{% endfor %}
+
+
+												</ul>
+											</div>
+										</div>
+									</div>
+
+
+
+									<div class="list-single-main-item fl-wrap block_box">
+										<div class="list-single-main-item-title">
+											<h3>Sports</h3>
+										</div>
+										<div class="list-single-main-item_content fl-wrap">
+											<div class="listing-features fl-wrap">
+												<ul class="no-list-style">
+													<li><a><i class="fa fa-rocket"></i>Swimming pool : {{property_detail.swimming_pool}}</a></li> &nbsp &nbsp
+													<li><a><i class="fa fa-rocket"></i> Gym : {{property_detail.gym}}</a></li>
+													<li><a><i class="fa fa-rocket"></i> Club house :  {{property_detail.club_house}}</a></li>
+													<li><a><i class="fa fa-wifi"></i> Jogging and strolling :  {{property_detail.jogging_and_strolling}}</a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+
+
+									<div class="list-single-main-item fl-wrap block_box">
+										<div class="list-single-main-item-title">
+											<h3>Leisure</h3>
+										</div>
+										<div class="list-single-main-item_content fl-wrap">
+											<div class="listing-features fl-wrap">
+												<ul class="no-list-style">
+													<li><a><i class="fa fa-rocket"></i>Reserved parking : {{property_detail.reservred_parking}}</a></li> &nbsp &nbsp
+													<li><a><i class="fa fa-rocket"></i> Power backup : {{property_detail.power_backup}}</a></li>
+													<li><a><i class="fa fa-rocket"></i> Bank and Atm :  {{property_detail.bank_and_atm}}</a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+
+
+									<div class="list-single-main-item fl-wrap block_box">
+										<div class="list-single-main-item-title">
+											<h3>Security</h3>
+										</div>
+										<div class="list-single-main-item_content fl-wrap">
+											<div class="listing-features fl-wrap">
+												<ul class="no-list-style">
+													<li><a><i class="fa fa-rocket"></i>Security : {{property_detail.security}}</a></li> &nbsp &nbsp
+													<li><a><i class="fa fa-rocket"></i> Earthquake resistant : {{property_detail.earthquake_resistant}} </a></li>
+													<li><a><i class="fa fa-rocket"></i> Fire fighting system :  {{property_detail.fire_fighting_system}}</a></li>
+													<li><a><i class="fa fa-rocket"></i> Intercom : {{property_detail.intercom}}</a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+
+
+									<div class="list-single-main-item fl-wrap block_box">
+										<div class="list-single-main-item-title">
+											<h3>Others</h3>
+										</div>
+										<div class="list-single-main-item_content fl-wrap">
+											<div class="listing-features fl-wrap">
+												<ul class="no-list-style">
+													<li><a><i class="fa fa-rocket"></i>Rainwater harvesting  : {{property_detail.rainwater_harvesting}}</a></li> &nbsp &nbsp
+													<li><a><i class="fa fa-rocket"></i> Lift : {{property_detail.lift}} </a></li>
+													<li><a><i class="fa fa-rocket"></i> Visitor parking:  {{property_detail.visitor_parking}}</a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+
+
+									<!-- list-single-main-item end -->
+									<!-- list-single-main-item-->
+									<div class="list-single-main-item fl-wrap block_box" id="sec4">
+										<div class="list-single-main-item-title">
+											<h3>Project Photos</h3>
+										</div>
+
+										<div class="list-single-main-item_content fl-wrap">
+											<div class="single-carousel-wrap fl-wrap lightgallery">
+												<div class="sc-next sc-btn color2-bg"><i class="fas fa-caret-right"></i></div>
+												<div class="sc-prev sc-btn color2-bg"><i class="fas fa-caret-left"></i></div>
+												<div class="single-carousel fl-wrap full-height">
+													<div class="swiper-container">
+														<div class="swiper-wrapper">
+															<!-- swiper-slide-->
+															{% for image in property_images %}
+															<div class="swiper-slide">
+																<div class="box-item">
+																	<img  src="{{image.image.url}}"   alt="">
+																	<a href="{{image.image.url}}" class="gal-link popup-image"><i class="fa fa-search"  ></i></a>
+																</div>
+															</div>
+															{% endfor %}
+															<!-- swiper-slide end-->
+															<!-- swiper-slide-->
+
+															<!-- swiper-slide end-->
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="list-single-main-item fl-wrap block_box" id="sec5">
+										<div class="list-single-main-item-title">
+											<h3>Floor plans</h3>
+										</div>
+										<div class="list-single-main-item_content fl-wrap">
+											<div class="single-carousel-wrap fl-wrap lightgallery">
+												<div class="sc-next sc-btn color2-bg"><i class="fas fa-caret-right"></i></div>
+												<div class="sc-prev sc-btn color2-bg"><i class="fas fa-caret-left"></i></div>
+												<div class="single-carousel fl-wrap full-height">
+													<div class="swiper-container">
+														<div class="swiper-wrapper">
+															<!-- swiper-slide-->
+															{% for image in property_area %}
+															<div class="swiper-slide">
+																<div class="box-item">
+																	<img  src="{{image.image.url}}"   alt="">
+																	<a href="{{image.image.url}}" class="gal-link popup-image"><i class="fa fa-search"  ></i></a>
+																</div>
+															</div>
+															{% endfor %}
+															<!-- swiper-slide end-->
+															<!-- swiper-slide-->
+
+															<!-- swiper-slide end-->
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- list-single-main-item end -->
+									<!-- accordion-->
+									<div class="accordion mar-top" id="sec6">
+
+
+										<a class="toggle act-accordion"> Banks approved<span></span></a>
+										{% for banks in banks_approved %}
+
+										<div class="accordion-inner visible">
+											<h4 class="simple-title">{{banks.banks_approved}} &nbsp by &nbsp<span>{{property_detail.builder_name}}</span></h4>
+											<p>{{banks.loan_details}}</p>
+										</div>
+										{% endfor %}
+									</div>
+									<!-- accordion end -->
+									<!-- list-single-main-item -->
+
+									<!-- list-single-main-item end -->
+									<!-- list-single-main-item -->
+
+									<!-- list-single-main-item end -->
+								</div>
+							</div>
+							<!-- list-single-main-wrapper-col end -->
+							<!-- list-single-sidebar -->
+							<div class="col-md-4">
+								<!--box-widget-item -->
+
+								<!--box-widget-item end -->
+								<!--box-widget-item -->
+
+								<!--box-widget-item end -->
+								<!--box-widget-item -->
+
+								<!--box-widget-item end -->
+								<!--box-widget-item -->
+								<div class="box-widget-item fl-wrap block_box">
+									<div class="box-widget-item-header">
+										<h3>Location / Contact info  </h3>
+									</div>
+									<div class="box-widget">
+
+										<div class="box-widget-content bwc-nopad">
+											<div class="list-author-widget-contacts list-item-widget-contacts bwc-padside">
+												<ul class="no-list-style">
+													<li><span><i class="fal fa-map-marker"></i> Adress :</span> <a>{{property_detail.address}}</a></li>
+													<li><span><i class="fal fa-phone"></i> Phone :</span> <a>+91 {{property_detail.phone_number}}</a></li>
+													<li><span><i class="fal fa-envelope"></i> Mail :</span> <a>{{property_detail.email}}</a></li>
+													<li><span><i class="fal fa-browser"></i> Website :</span> <a>{{property_detail.website}}</a></li>
+												</ul>
+											</div>
+											<div class="list-widget-social bottom-bcw-box  fl-wrap">
+												<ul class="no-list-style">
+													<li><a href="{{property_detail.facebook_link}}" target="_blank" ><i class="fab fa-facebook-f"></i></a></li>
+													<li><a href="{{property_detail.instagram_link}}" target="_blank"><i class="fab fa-instagram"></i></a></li>
+													<li><a href="{{property_detail.youtube_link}}" target="_blank" ><i class="fab fa-youtube"></i></a></li>
+
+												</ul>
+
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="box-widget-item fl-wrap block_box">
+									<div class="box-widget-item-header">
+										<h3> Price Range </h3>
+									</div>
+									<div class="box-widget">
+										<div class="box-widget-content">
+											<div class="claim-price-wdget fl-wrap">
+												<div class="claim-price-wdget-content fl-wrap">
+													<div class="pricerange fl-wrap"><span>Price : </span> {{property_detail.min_price}} - {{property_detail.max_price}} lacs </div>
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="box-widget-item fl-wrap block_box">
+									<div class="box-widget-item-header">
+										<h3>Get in touch</h3>
+									</div>
+									<div class="box-widget">
+										<div class="box-widget-content">
+											<div class="custom-form">
+
+												<form action="form-control" method="POST">
+										            {% csrf_token %}
+										            {% bootstrap_form reserve_form %}
+										            {% buttons %}
+										            <button type="submit" style="background-color:blue;" class="btn btn-primary">SUBMIT</button>
+										            {% endbuttons%}
+										        </form>
+											</div>
+										</div>
+
+									</div>
+								</div>
+
+								<!--box-widget-item end -->
+								<!--box-widget-item -->
+
+								<!--box-widget-item end -->
+								<!--box-widget-item -->
+								<div class="box-widget-item fl-wrap block_box">
+									<div class="box-widget-item-header">
+										<h3>Hosted by : </h3>
+									</div>
+									<div class="box-widget">
+										<div class="box-widget-author fl-wrap">
+											<div class="box-widget-author-title">
+												<div class="box-widget-author-title-img">
+													<img src="{{property_detail.profile_pic.url}}" alt="">
+												</div>
+												<div class="box-widget-author-title_content">
+													<a href="user-single.html">{{property_detail.name}}</a>
+
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+								<!--box-widget-item end -->
+								<!--box-widget-item -->
+
+								<!--box-widget-item end -->
+								<!--box-widget-item -->
+
+								<!--box-widget-item end -->
+							</div>
+							<!-- list-single-sidebar end -->
+						</div>
+					</div>
+				</section>
+				<div class="limit-box fl-wrap"></div>
+			</div>
+			<!--content end-->
+		</div>
+		<!-- wrapper end-->
+		<!--footer -->
+{% endblock body %}

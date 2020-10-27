@@ -1,0 +1,388 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load bootstrap4 %}
+
+
+{% block body %}
+
+
+        <!-- header end-->
+        <!-- wrapper-->
+        <div id="wrapper">
+            <!-- content-->
+
+            <div class="content">
+                <section class="listing-hero-section hidden-section" data-scrollax-parent="true" id="sec1">
+                    <div class="bg-parallax-wrap">
+                        <!--ms-container-->
+                        <div class="slideshow-container" data-scrollax="properties: { translateY: '300px' }" >
+                            <div class="swiper-container">
+                                <div class="swiper-wrapper">
+                                    <!--ms_item-->
+                                    <div class="swiper-slide">
+                                        <div class="ms-item_fs fl-wrap full-height">
+                                            <div class="bg" data-bg="{{professional_detail.banner_image.url}}"></div>
+                                            <div class="overlay"></div>
+                                        </div>
+                                    </div>
+                                    <!--ms_item end-->
+                                    <!--ms_item-->
+                                    <div class="swiper-slide ">
+                                        <div class="ms-item_fs fl-wrap full-height">
+                                            <div class="bg" data-bg="{{professional_detail.banner_image.url}}"></div>
+                                            <div class="overlay"></div>
+                                        </div>
+                                    </div>
+                                    <!--ms_item end-->
+                                    <!--ms_item-->
+                                    <div class="swiper-slide">
+                                        <div class="ms-item_fs fl-wrap full-height">
+                                            <div class="bg" data-bg="{{professional_detail.banner_image.url}}"></div>
+                                            <div class="overlay"></div>
+                                        </div>
+                                    </div>
+                                    <!--ms_item end-->
+                                </div>
+                            </div>
+                        </div>
+                        <!--ms-container end-->
+                        <div class="overlay"></div>
+                    </div>
+                    <div class="slide-progress-wrap">
+                        <div class="slide-progress"></div>
+                    </div>
+                    <div class="container">
+                        <div class="list-single-header-item  fl-wrap">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <h1>{{professional_detail.company_name}} <span class="verified-badge"><i class="fal fa-check"></i></span></h1>
+                                    <div class="geodir-category-location fl-wrap"><a><i class="fas fa-map-marker-alt"></i> {{professional_detail.address}}</a> <a> <i class="fal fa-phone"></i>+91 {{professional_detail.phone_number}}</a> <a><i class="fal fa-envelope"></i> {{professional_detail.email}}</a></div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="list-single-header_bottom fl-wrap">
+                            <a class="listing-item-category-wrap" href="#">
+                                <div class="listing-item-category  blue-bg"><i class="fal fa-category"></i></div>
+                                <span>{{professional_detail.category}}</span>
+                            </a>
+                            <div class="list-single-author"> <span class="author_avatar"> <img alt='' src='{{professional_detail.profile_image.url}}'>  </span>By {{professional_detail.name}}</a></div>
+                            <div class="geodir_status_date gsd_close"><i></i>{{professional_detail.experience}} + years of experience </div>
+                            <div class="list-single-stats">
+                                <ul class="no-list-style">
+                                    <li><span class="viewed-counter"><i class="fas fa-eye"></i> Profile views -  001 </span></li>
+                                    <li><span class="bookmark-counter"><i class="fas fa-heart"></i> Profile Shared -  001 </span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!-- scroll-nav-wrapper-->
+                <div class="scroll-nav-wrapper fl-wrap">
+                    <div class="container">
+                        <nav class="scroll-nav scroll-init">
+                            <ul class="no-list-style">
+                                <li><a class="act-scrlink" href="#sec1"><i class="fal fa-images"></i> Top</a></li>
+                                <li><a href="#sec2"><i class="fal fa-running"></i>Our office </a></li>
+                                <li><a href="#sec3"><i class="fal fa-info"></i>Details</a></li>
+                                <li><a href="#sec4"><i class="fal fa-image"></i>Project photos</a></li>
+                            </ul>
+                        </nav>
+                        <div class="scroll-nav-wrapper-opt">
+
+                            <a href="#" class="scroll-nav-wrapper-opt-btn showshare"> <i class="fas fa-share"></i> Share </a>
+                            <div class="share-holder hid-share">
+                                <div class="share-container  isShare"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- scroll-nav-wrapper end-->
+                <section class="gray-bg no-top-padding">
+                    <div class="container">
+
+                        <div class="clearfix"></div>
+                        <div class="row">
+                            <!-- list-single-main-wrapper-col -->
+                            <div class="col-md-8">
+                                <!-- list-single-main-wrapper -->
+                                <div class="list-single-main-wrapper fl-wrap">
+                                    <!-- list-single-main-item-->
+                                    <div class="list-single-main-item fl-wrap block_box" id="sec2">
+                                        <div class="list-single-main-item-title">
+                                            <h3>Our Showroom/office</h3>
+                                        </div>
+                                        <div class="list-single-main-item_content fl-wrap">
+                                            <div class="single-carousel-wrap fl-wrap lightgallery">
+                                                <div class="sc-next sc-btn color2-bg"><i class="fas fa-caret-right"></i></div>
+                                                <div class="sc-prev sc-btn color2-bg"><i class="fas fa-caret-left"></i></div>
+                                                <div class="single-carousel fl-wrap full-height">
+                                                    <div class="swiper-container">
+                                                        <div class="swiper-wrapper">
+                                                            <!-- swiper-slide-->
+                                                            {% for image in professional_office_images %}
+                                                            <div class="swiper-slide">
+                                                                <div class="box-item">
+                                                                    <img  src="{{image.image.url}}"   alt="">
+                                                                    <a href="{{image.image.url}}" class="gal-link popup-image"><i class="fa fa-search"  ></i></a>
+                                                                </div>
+                                                            </div>
+                                                            {% endfor %}
+                                                            <!-- swiper-slide end-->
+                                                            <!-- swiper-slide-->
+                                                            <!-- swiper-slide end-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- list-single-main-item end -->
+                                    <!-- list-single-facts -->
+                                    <div class="list-single-facts fl-wrap">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <!-- inline-facts -->
+                                                <div class="inline-facts-wrap gradient-bg ">
+                                                    <div class="inline-facts">
+                                                        <i class="fal fa-smile-plus"></i>
+                                                        <div class="milestone-counter">
+                                                            <div class="stats animaper">
+                                                                <div class="num" data-content="0" data-num="{{professional_detail.happy_customers}}">0</div>
+                                                            </div>
+                                                        </div>
+                                                        <h6>Happy Customers</h6>
+                                                    </div>
+                                                    <div class="stat-wave">
+                                                        <svg viewbox="0 0 100 25">
+                                                            <path fill="#fff" d="M0 30 V12 Q30 17 55 2 T100 11 V30z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <!-- inline-facts end -->
+                                            </div>
+                                            <div class="col-md-4">
+                                                <!-- inline-facts  -->
+                                                <div class="inline-facts-wrap gradient-bg ">
+                                                    <div class="inline-facts">
+                                                        <i class="fal fa-users"></i>
+                                                        <div class="milestone-counter">
+                                                            <div class="stats animaper">
+                                                                <div class="num" data-content="0" data-num="{{professional_detail.projects_ongoing}}">0</div>
+                                                            </div>
+                                                        </div>
+                                                        <h6>Ongoing Projects</h6>
+                                                    </div>
+                                                    <div class="stat-wave">
+                                                        <svg viewbox="0 0 100 25">
+                                                            <path fill="#fff" d="M0 30 V12 Q30 17 55 12 T100 11 V30z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <!-- inline-facts end -->
+                                            </div>
+                                            <div class="col-md-4">
+                                                <!-- inline-facts  -->
+                                                <div class="inline-facts-wrap gradient-bg ">
+                                                    <div class="inline-facts">
+                                                        <i class="fal fa-award"></i>
+                                                        <div class="milestone-counter">
+                                                            <div class="stats animaper">
+                                                                <div class="num" data-content="0" data-num="{{professional_detail.projects_completed}}">0</div>
+                                                            </div>
+                                                        </div>
+                                                        <h6>Projects Completed</h6>
+                                                    </div>
+                                                    <div class="stat-wave">
+                                                        <svg viewbox="0 0 100 25">
+                                                            <path fill="#fff" d="M0 30 V12 Q30 12 55 5 T100 11 V30z" />
+                                                        </svg>
+                                                    </div>
+                                                </div>
+                                                <!-- inline-facts end -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- list-single-facts end -->
+                                    <!-- list-single-main-item -->
+                                    <div class="list-single-main-item fl-wrap block_box" id="sec3">
+                                        <div class="list-single-main-item-title">
+                                            <h3>Description</h3>
+                                        </div>
+                                        <div class="list-single-main-item_content fl-wrap">
+                                            <p>{{professional_detail.description}}  </p>
+                                            <a href="{{professional_detail.website}}" class="btn color2-bg float-btn">Visit Our Website<i class="fal fa-chevron-right"></i></a>
+                                        </div>
+                                    </div>
+                                    <!-- list-single-main-item end -->
+                                    <!-- list-single-main-item -->
+
+                                    <!-- list-single-main-item end -->
+                                    <!-- list-single-main-item-->
+                                    <div class="list-single-main-item fl-wrap block_box" id="sec4">
+                                        <div class="list-single-main-item-title">
+                                            <h3>Project Photos</h3>
+                                        </div>
+                                        <div class="list-single-main-item_content fl-wrap">
+                                            <div class="single-carousel-wrap fl-wrap lightgallery">
+                                                <div class="sc-next sc-btn color2-bg"><i class="fas fa-caret-right"></i></div>
+                                                <div class="sc-prev sc-btn color2-bg"><i class="fas fa-caret-left"></i></div>
+                                                <div class="single-carousel fl-wrap full-height">
+                                                    <div class="swiper-container">
+                                                        <div class="swiper-wrapper">
+                                                            <!-- swiper-slide-->
+                                                            {% for image in project_images %}
+                                                            <div class="swiper-slide">
+                                                                <div class="box-item">
+                                                                    <img  src="{{image.image.url}}"   alt="">
+                                                                    <a href="{{image.image.url}}" class="gal-link popup-image"><i class="fa fa-search"  ></i></a>
+                                                                </div>
+                                                            </div>
+                                                            {% endfor %}
+                                                            <!-- swiper-slide end-->
+                                                            <!-- swiper-slide-->
+
+                                                            <!-- swiper-slide end-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- list-single-main-item end -->
+                                    <!-- accordion-->
+
+                                    <!-- accordion end -->
+                                    <!-- list-single-main-item -->
+
+                                    <!-- list-single-main-item end -->
+                                    <!-- list-single-main-item -->
+
+                                    <!-- list-single-main-item end -->
+                                </div>
+                            </div>
+                            <!-- list-single-main-wrapper-col end -->
+                            <!-- list-single-sidebar -->
+                            <div class="col-md-4">
+                                <!--box-widget-item -->
+
+                                <!--box-widget-item end -->
+                                <!--box-widget-item -->
+
+                                <!--box-widget-item end -->
+                                <!--box-widget-item -->
+
+                                <!--box-widget-item end -->
+                                <!--box-widget-item -->
+                                <div class="box-widget-item fl-wrap block_box">
+                                    <div class="box-widget-item-header">
+                                        <h3>Contact info  </h3>
+                                    </div>
+                                    <div class="box-widget">
+
+                                        <div class="box-widget-content bwc-nopad">
+                                            <div class="list-author-widget-contacts list-item-widget-contacts bwc-padside">
+                                                <ul class="no-list-style">
+                                                    <li><span><i class="fal fa-map-marker"></i> Adress :</span> <a href="#">{{professional_detail.address}}</a></li>
+                                                    <li><span><i class="fal fa-phone"></i> Phone :</span> <a href="#">+91 {{professional_detail.phone_number}}, +91{{professional_detail.phone_number_1}}</a></li>
+                                                    <li><span><i class="fal fa-envelope"></i> Mail :</span> <a href="#">{{professional_detail.email}}</a></li>
+                                                    <li><span><i class="fal fa-browser"></i> Website :</span> <a href="#">{{professional_detail.website}}</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="list-widget-social bottom-bcw-box  fl-wrap">
+                                                <ul class="no-list-style">
+                                                    <li><a href="{{professional_detail.facebook_link}}" target="_blank" ><i class="fab fa-facebook-f"></i></a></li>
+                                                    <li><a href="{{professional_detail.instagram_link}}" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                                    <li><a href="{{professional_detail.youtube_link}}" target="_blank" ><i class="fab fa-youtube"></i></a></li>
+                                                    <li><a href="{{professional_detail.whatsapp_link}}" target="_blank" ><i class="fab fa-whatsapp"></i></a></li>
+                                                </ul>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="box-widget-item fl-wrap block_box">
+                                    <div class="box-widget-item-header">
+                                        <h3> Price Range </h3>
+                                    </div>
+                                    <div class="box-widget">
+                                        <div class="box-widget-content">
+                                            <div class="claim-price-wdget fl-wrap">
+                                                <div class="claim-price-wdget-content fl-wrap">
+                                                    <div class="pricerange fl-wrap"><span>Price : </span> {{professional_detail.min_budget}} - {{professional_detail.max_budget}} lacs </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="box-widget-item fl-wrap block_box">
+                                    <div class="box-widget-item-header">
+                                        <h3>Get in touch</h3>
+                                    </div>
+                                    <div class="box-widget">
+                                        <div class="box-widget-content">
+                                            <div class="custom-form">
+
+                                                <form action="" method="POST">
+                                                    {% csrf_token %}
+                                                    {% bootstrap_form reserve_form %}
+                                                    {% buttons %}
+                                                    <button type="submit" style="background-color:blue;" class="btn btn-primary">SUBMIT</button>
+                                                    {% endbuttons%}
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+
+                                <!--box-widget-item end -->
+                                <!--box-widget-item -->
+
+                                <!--box-widget-item end -->
+                                <!--box-widget-item -->
+                                <div class="box-widget-item fl-wrap block_box">
+                                    <div class="box-widget-item-header">
+                                        <h3>Hosted by : </h3>
+                                    </div>
+                                    <div class="box-widget">
+                                        <div class="box-widget-author fl-wrap">
+                                            <div class="box-widget-author-title">
+                                                <div class="box-widget-author-title-img">
+                                                    <img src="{{professional_detail.profile_image.url}}" alt="">
+                                                </div>
+                                                <div class="box-widget-author-title_content">
+                                                    <a href="user-single.html">{{professional_detail.name}}</a>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--box-widget-item end -->
+                                <!--box-widget-item -->
+
+                                <!--box-widget-item end -->
+                                <!--box-widget-item -->
+
+                                <!--box-widget-item end -->
+                            </div>
+                            <!-- list-single-sidebar end -->
+                        </div>
+                    </div>
+                </section>
+                <div class="limit-box fl-wrap"></div>
+            </div>
+
+            <!--content end-->
+        </div>
+        <!-- wrapper end-->
+        <!--footer -->
+{% endblock body %}

@@ -1,0 +1,187 @@
+
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block body %}
+            <!-- header end-->
+            <!-- wrapper-->
+            <div id="wrapper">
+                  <!-- content-->
+                  <div class="content">
+                      <!--  section  -->
+                      <section class="parallax-section dashboard-header-sec gradient-bg" data-scrollax-parent="true">
+                          <div class="container">
+                              <div class="dashboard-breadcrumbs breadcrumbs"><a href="/">Home</a><a href="{% url 'webapp:aprofile' %}">Dashboard</a></div>
+                              <!--Tariff Plan menu-->
+
+
+                              <!--Tariff Plan menu end-->
+                              <div class="dashboard-header_conatiner fl-wrap dashboard-header_title">
+                                  <h1>Welcome  : <span>{{user.builder.company_name}}</span></h1>
+                              </div>
+                          </div>
+                          <div class="clearfix"></div>
+                          <div class="dashboard-header fl-wrap">
+                              <div class="container">
+                                  <div class="dashboard-header_conatiner fl-wrap">
+                                      <div class="dashboard-header-avatar">
+                                          <img src="{{user.builder.company_logo.url}}" alt="">
+
+                                      </div>
+                                      <div class="dashboard-header-stats-wrap">
+                                          <div class="dashboard-header-stats">
+                                              <div class="swiper-container">
+                                                  <div class="swiper-wrapper">
+                                                      <!--  dashboard-header-stats-item -->
+                                                      <div class="swiper-slide">
+                                                          <div class="dashboard-header-stats-item">
+                                                              <i class="fal fa-map-marked"></i>
+                                                              Properties
+                                                              <span>00</span>
+                                                          </div>
+                                                      </div>
+                                                      <!--  dashboard-header-stats-item end -->
+                                                      <!--  dashboard-header-stats-item -->
+                                                      <div class="swiper-slide">
+                                                          <div class="dashboard-header-stats-item">
+                                                              <i class="fal fa-chart-bar"></i>
+                                                             Profile score
+                                                              <span>50</span>
+                                                          </div>
+                                                      </div>
+                                                      <!--  dashboard-header-stats-item end -->
+                                                      <!--  dashboard-header-stats-item -->
+
+                                                      <!--  dashboard-header-stats-item end -->
+                                                      <!--  dashboard-header-stats-item -->
+                                                      <div class="swiper-slide">
+                                                          <div class="dashboard-header-stats-item">
+                                                              <i class="fal fa-heart"></i>
+                                                              Profile creation status
+                                                              <span>{{user.builder.profile_status}}</span>
+                                                          </div>
+                                                      </div>
+                                                      <!--  dashboard-header-stats-item end -->
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <!--  dashboard-header-stats  end -->
+                                          <div class="dhs-controls">
+                                              <div class="dhs dhs-prev"><i class="fal fa-angle-left"></i></div>
+                                              <div class="dhs dhs-next"><i class="fal fa-angle-right"></i></div>
+                                          </div>
+                                      </div>
+                                      <!--  dashboard-header-stats-wrap end -->
+
+                                  </div>
+                              </div>
+                          </div>
+                        <div class="gradient-bg-figure" style="right:-30px;top:10px;"></div>
+                        <div class="gradient-bg-figure" style="left:-20px;bottom:30px;"></div>
+                        <div class="circle-wrap" style="left:120px;bottom:120px;" data-scrollax="properties: { translateY: '-200px' }">
+                            <div class="circle_bg-bal circle_bg-bal_small"></div>
+                        </div>
+                        <div class="circle-wrap" style="right:420px;bottom:-70px;" data-scrollax="properties: { translateY: '150px' }">
+                            <div class="circle_bg-bal circle_bg-bal_big"></div>
+                        </div>
+                        <div class="circle-wrap" style="left:420px;top:-70px;" data-scrollax="properties: { translateY: '100px' }">
+                            <div class="circle_bg-bal circle_bg-bal_big"></div>
+                        </div>
+                        <div class="circle-wrap" style="left:40%;bottom:-70px;"  >
+                            <div class="circle_bg-bal circle_bg-bal_middle"></div>
+                        </div>
+                        <div class="circle-wrap" style="right:40%;top:-10px;"  >
+                            <div class="circle_bg-bal circle_bg-bal_versmall" data-scrollax="properties: { translateY: '-350px' }"></div>
+                        </div>
+                        <div class="circle-wrap" style="right:55%;top:90px;"  >
+                            <div class="circle_bg-bal circle_bg-bal_versmall" data-scrollax="properties: { translateY: '-350px' }"></div>
+                        </div>
+                    </section>
+                    <!--  section  end-->
+                    <!--  section  -->
+                    <section class="gray-bg main-dashboard-sec" id="sec1">
+                        <div class="container">
+                            <!--  dashboard-menu-->
+                            <div class="col-md-3">
+                                <div class="mob-nav-content-btn color2-bg init-dsmen fl-wrap"><i class="fal fa-bars"></i> Dashboard menu</div>
+                                <div class="clearfix"></div>
+                                <div class="fixed-bar fl-wrap" id="dash_menu">
+                                    <div class="user-profile-menu-wrap fl-wrap block_box">
+                                        <!-- user-profile-menu-->
+                                        <div class="user-profile-menu">
+                                            <h3>Main</h3>
+                                            <ul class="no-list-style">
+                                                <li><a href="{% url 'webapp:bprofile' %}" class="user-profile-act"><i class="fal fa-chart-line"></i>Dashboard</a></li>
+                                                <li><a href="{% url 'webapp:bupdate' user.id %}"><i class="fal fa-user-edit"></i> Edit profile</a></li>
+                                                <li><a href="{% url 'webapp:benquiry' %}"> <i class="fal fa-calendar-check"></i> Enquries </a></li>
+                                                <li><a href="{% url 'webapp:baddprop' %}"> <i class="fal fa-calendar-check"></i> Add Properties </a></li>
+                                                
+
+
+
+                                            </ul>
+                                        </div>
+                                        <!-- user-profile-menu end-->
+                                        <!-- user-profile-menu-->
+
+
+                                        <!-- user-profile-menu end-->
+
+                                    </div>
+                                </div>
+                                <a class="back-tofilters color2-bg custom-scroll-link fl-wrap" href="#dash_menu">Back to Menu<i class="fas fa-caret-up"></i></a>
+
+                            </div>
+                            <!-- dashboard-menu  end-->
+                            <!-- dashboard content-->
+                            <div class="col-md-9">
+                                <div class="dashboard-title fl-wrap">
+                                    <h3>Your Statistics</h3>
+                                </div>
+                                <!-- list-single-facts -->
+
+                                <!-- list-single-facts end -->
+                                <div class="list-single-main-item fl-wrap block_box">
+                                    <!-- chart-wra-->
+                                    <div class="chart-wrap   fl-wrap">
+                                        <div class="chart-header fl-wrap">
+
+                                            <div id="myChartLegend"></div>
+                                        </div>
+                                        <canvas id="canvas-chart"></canvas>
+                                    </div>
+                                    <!--chart-wrap end-->
+                                </div>
+
+                                <!-- dashboard-list-box-->
+
+                                    <!-- dashboard-list end-->
+
+                                    <!-- dashboard-list end-->
+                                    <!-- dashboard-list end-->
+
+                                    <!-- dashboard-list end-->
+                                    <!-- dashboard-list end-->
+
+                                    <!-- dashboard-list end-->
+                                    <!-- dashboard-list end-->
+
+                                    <!-- dashboard-list end-->
+                                    <!-- dashboard-list end-->
+
+                                    <!-- dashboard-list end-->
+
+                                <!-- dashboard-list-box end-->
+                            </div>
+                            <!-- dashboard content end-->
+                        </div>
+                    </section>
+                    <!--  section  end-->
+                    <div class="limit-box fl-wrap"></div>
+                </div>
+                <!--content end-->
+            </div>
+
+{% endblock body %}

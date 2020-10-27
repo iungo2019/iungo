@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load bootstrap4 %}
+
+
+{% block body %}
+
+<!-- header end-->
+<!-- wrapper-->
+<div id="wrapper">
+    <!-- content-->
+    <div class="content">
+        <!--  section  -->
+        <section class="parallax-section single-par" data-scrollax-parent="true">
+            <div class="bg par-elem "  data-bg="{%static 'images/contact_us.jpg' %}" data-scrollax="properties: { translateY: '30%' }"></div>
+            <div class="overlay op7"></div>
+            <div class="container">
+                <div class="section-title center-align big-title">
+                    <h2><span>Contact Us</span></h2>
+                    <span class="section-separator"></span>
+                    <div class="breadcrumbs fl-wrap"><a href="/">Home</a><a href="{% url 'contact:send_mail' %}">Contact</a></div>
+                </div>
+            </div>
+            <div class="header-sec-link">
+                <a href="#sec1" class="custom-scroll-link"><i class="fal fa-angle-double-down"></i></a>
+            </div>
+        </section>
+        <!--  section  end-->
+        <!--  section  -->
+        <section   id="sec1" data-scrollax-parent="true">
+            <div class="container">
+                <!--about-wrap -->
+                <div class="about-wrap">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="ab_text-title fl-wrap">
+                                <h3>Get in Touch</h3>
+                                <span class="section-separator fl-sec-sep"></span>
+                            </div>
+                            <!--box-widget-item -->
+                            <div class="box-widget-item fl-wrap block_box">
+                                <div class="box-widget">
+                                    <div class="box-widget-content bwc-nopad">
+                                        <div class="list-author-widget-contacts list-item-widget-contacts bwc-padside">
+                                            <ul class="no-list-style">
+                                                <li><span><i class="fal fa-map-marker"></i> Adress :</span> <a href="#singleMap" class="custom-scroll-link">Next Co works, Ranka Colony Rd, BTM 2nd Stage, Bengaluru, Karnataka 560076</a></li>
+                                                <li><span><i class="fal fa-phone"></i> Phone :</span> <a href="#">+91 9108066795</a></li>
+                                                <li><span><i class="fal fa-envelope"></i> Mail :</span> <a href="#">hello@domain.com</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="list-widget-social bottom-bcw-box  fl-wrap">
+                                            <ul class="no-list-style">
+                                                <li><a href="#" target="_blank" ><i class="fab fa-facebook-f"></i></a></li>
+                                                <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                                                <li><a href="#" target="_blank" ><i class="fab fa-vk"></i></a></li>
+                                                <li><a href="#" target="_blank" ><i class="fab fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--box-widget-item end -->
+                            <!--box-widget-item -->
+
+                            <!--box-widget-item end -->
+                        </div>
+                        <div class="col-md-8">
+                            <div class="ab_text">
+                                <div class="ab_text-title fl-wrap">
+                                    <h3>Drop us a line</h3>
+                                    <span class="section-separator fl-sec-sep"></span>
+                                </div>
+
+                                <div id="contact-form">
+                                    <div id="message"></div>
+                                    <div class="custom-form">
+                                    <form method="post" enctype=multipart/form-data>
+                                        {% csrf_token %}
+                                        {% bootstrap_form contact_form %}
+                                        {% buttons %}
+                                        <button type="submit" style="background-color:blue;" class="btn btn-primary" id="submit" name="submit" value="Send Message">Submit</button>
+                                        {% endbuttons %}
+                            <!--div class="form-group">
+                                <input type="submit" class="btn btn-primary" id="submit" name="submit" value="Send Message">
+
+                            </div-->
+                        </form>
+                    </div>
+                    </div>
+                    <!-- contact form  end-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- about-wrap end  -->
+</div>
+</section>
+<section class="no-padding-section">
+    <div class="map-container">
+        <div id="singleMap" data-latitude="40.7427837" data-longitude="-73.11445617675781" data-mapTitle="Our Location"></div>
+    </div>
+</section>
+</div>
+<!--content end-->
+</div>
+<!-- wrapper end-->
+<!--footer -->
+{% endblock body %}
